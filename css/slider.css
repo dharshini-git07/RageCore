@@ -1,0 +1,69 @@
+.slide {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100% !important;
+    display: flex !important; 
+    align-items: center;
+    overflow: hidden;
+    transform: translateX(100%); 
+    opacity: 0;
+    pointer-events: none;  
+    transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+}
+
+.slide.active {
+    transform: translateX(0) !important;
+    opacity: 1 !important;
+    pointer-events: auto;
+    z-index: 3;
+    animation: none !important; 
+}
+
+
+.slide.exit-left {
+    transform: translateX(-100%) !important;
+    opacity: 0 !important;
+    pointer-events: none;
+    z-index: 2;
+}
+
+
+.slide.exit-right {
+    transform: translateX(100%) !important;
+    opacity: 0 !important;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.slide.enter-left {
+    transform: translateX(-100%) !important;
+    opacity: 0 !important;
+    transition: none !important;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.slide .banner-image {
+    transform: scale(1.08);
+    transition: transform 8s ease-out;
+}
+
+.slide.active .banner-image {
+    transform: scale(1);
+}
+
+.slide .hero-text {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    animation: none !important; 
+}
+
+.slide.active .hero-text {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.4s; 
+}

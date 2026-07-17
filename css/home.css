@@ -333,7 +333,7 @@
 
 .slide.active {
     display: flex;
-    animation: fadeIn .9s ease;
+    animation: fadeIn 1.5s ease-in-out;
 }
 
 .hero-content {
@@ -542,6 +542,20 @@
     background: var(--secondary-color);
 }
 
+
+.banner-image {
+
+    transform: scale(1.08);
+    transition: transform 8s ease;
+
+}
+
+.slide.active .banner-image {
+
+    transform: scale(1);
+
+}
+
 /* HERO IMAGE EFFECT*/
 
 .hero-image {
@@ -556,15 +570,17 @@
 /*ANIMATIONS*/
 
 @keyframes fadeIn {
+
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateX(60px);
     }
 
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateX(0);
     }
+
 }
 
 @keyframes floatImage {
