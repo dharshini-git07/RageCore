@@ -23,41 +23,199 @@
     <link rel="stylesheet" href="css/variable.css">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/responsive.css">
 
 </head>
 
 <body>
 
     <!--NAVBAR -->
+    <header class="header">
 
-    <header>
         <nav class="navbar">
+
             <div class="container nav-container">
+
                 <!-- Logo -->
+
                 <a href="index.html" class="logo">
-                    Rage<span>Core</span>
+                    <i class="fa-solid fa-gamepad"></i>
+                    <span>RageCore</span>
                 </a>
-                <!-- Navigation -->
+
+                <!-- Desktop Navigation -->
+
                 <ul class="nav-links">
+
                     <li><a href="index.html" class="active">Home</a></li>
+
                     <li><a href="games.html">Games</a></li>
-                    <li><a href="wishlist.html">Wishlist</a></li>
-                    <li><a href="cart.html">Cart</a></li>
+
+                    <li><a href="#">Categories</a></li>
+
+                    <li><a href="#">Deals</a></li>
+
                     <li><a href="contact.html">Contact</a></li>
+
                 </ul>
 
-                <!-- Right Icons -->
-                <div class="nav-icons">
-                    <a href="login.html">
-                        <i class="fa-solid fa-user"></i>
-                    </a>
-                    <button class="menu-btn">
-                        <i class="fa-solid fa-bars"></i>
-                    </button>
+                <!-- Search -->
+
+                <div class="search-box">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input type="text" placeholder="Search games...">
+
                 </div>
+
+                <!-- Right Icons -->
+
+                <div class="nav-actions">
+
+                    <a href="wishlist.html" title="Wishlist">
+
+                        <i class="fa-regular fa-heart"></i>
+
+                    </a>
+
+                    <a href="cart.html" title="Cart">
+
+                        <i class="fa-solid fa-cart-shopping"></i>
+
+                    </a>
+
+                    <a href="login.html" title="Profile">
+
+                        <i class="fa-regular fa-user"></i>
+
+                    </a>
+
+                    <button class="menu-btn">
+
+                        <i class="fa-solid fa-bars"></i>
+
+                    </button>
+
+                </div>
+
             </div>
+
         </nav>
+
     </header>
+
+    <!-- MOBILE SIDEBAR-->
+
+    <aside class="mobile-sidebar">
+
+        <div class="sidebar-header">
+
+            <h2>
+
+                <span>Rage</span>Core
+
+            </h2>
+
+            <button class="close-btn">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+        <ul class="mobile-links">
+
+            <li>
+
+                <a href="index.html">
+
+                    <i class="fa-solid fa-house"></i>
+
+                    Home
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="games.html">
+
+                    <i class="fa-solid fa-gamepad"></i>
+
+                    Games
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="#">
+
+                    <i class="fa-solid fa-layer-group"></i>
+
+                    Categories
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="wishlist.html">
+
+                    <i class="fa-regular fa-heart"></i>
+
+                    Wishlist
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="cart.html">
+
+                    <i class="fa-solid fa-cart-shopping"></i>
+
+                    Cart
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="contact.html">
+
+                    <i class="fa-solid fa-envelope"></i>
+
+                    Contact
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="login.html">
+
+                    <i class="fa-regular fa-user"></i>
+
+                    Login
+
+                </a>
+
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <div class="sidebar-overlay"></div>
 
     <!-- HERO SECTION -->
 
@@ -185,11 +343,11 @@
                 <img class="banner-image" src="assets/images/banners/cyberpunk-banner.png" alt="CYBERPUNK 2077">
                 <div class="overlay"></div>
                 <div class="container hero-content">
-                    <div class="hero-text">   
+                    <div class="hero-text">
                         <span class="badge">
                             RPG
                         </span>
-    
+
                         <h1>
                             CYBERPUNK 2077
                         </h1>
@@ -231,95 +389,144 @@
 
     </section>
 
-    <!-- FOOTER-->
+    <!--FEATURED GAMES-->
+    <div id="featuredGames"></div>
+
+    <!--Trending GAMES-->
+    <div id="trendingGames"></div>
+
+
+    <!-- FOOTER-->                                                                                                  
+
     <footer class="footer">
-        <div class="container">
-            <div class="footer-container">
-                <!-- Logo -->
-                <div class="footer-about">
-                    <h2 class="footer-logo">
-                        Rage<span>Core</span>
-                    </h2>
 
-                    <p>
-                        Discover the latest games, exclusive offers, and an
-                        immersive gaming experience—all in one place.
-                    </p>
+        <div class="container footer-container">
 
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-x-twitter"></i></a>
-                        <a href="#"><i class="fab fa-discord"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
+            <div class="footer-about">
+
+                <a href="index.html" class="footer-logo">
+
+                    <i class="fa-solid fa-gamepad"></i>
+
+                    <span>Rage</span>Core
+
+                </a>
+
+                <p>
+
+                    Discover premium PC games, exclusive deals, and an immersive gaming experience with RageCore.
+
+                </p>
+
+                <div class="social-links">
+
+                    <a href="#"><i class="fa-brands fa-discord"></i></a>
+
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+
+                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+
+                </div>
+
+            </div>
+
+            <div class="footer-links">
+
+                <h3>Quick Links</h3>
+
+                <ul>
+
+                    <li><a href="index.html">Home</a></li>
+
+                    <li><a href="games.html">Games</a></li>
+
+                    <li><a href="wishlist.html">Wishlist</a></li>
+
+                    <li><a href="cart.html">Cart</a></li>
+
+                    <li><a href="contact.html">Contact</a></li>
+
+                </ul>
+
+            </div>
+
+            <div class="footer-links">
+
+                <h3>Categories</h3>
+
+                <ul>
+
+                    <li><a href="games.html">Action</a></li>
+
+                    <li><a href="games.html">Racing</a></li>
+
+                    <li><a href="games.html">Sports</a></li>
+
+                    <li><a href="games.html">RPG</a></li>
+
+                    <li><a href="games.html">Adventure</a></li>
+
+                </ul>
+
+            </div>
+
+            <div class="footer-newsletter">
+
+                <h3>Newsletter</h3>
+
+                <p>
+
+                    Subscribe to receive the latest game releases and exclusive offers.
+
+                </p>
+
+                <form>
+
+                    <div class="newsletter-box">
+
+                        <input type="email" placeholder="Enter your email">
+
+                        <button type="submit">
+
+                            <i class="fa-solid fa-paper-plane"></i>
+
+                        </button>
+
                     </div>
-                </div>
 
-                <!-- Quick Links -->
-                <div class="footer-links">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="games.html">Games</a></li>
-                        <li><a href="wishlist.html">Wishlist</a></li>
-                        <li><a href="cart.html">Cart</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-
-
-                <!-- Categories -->
-                <div class="footer-links">
-                    <h3>Categories</h3>
-                    <ul>
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Adventure</a></li>
-                        <li><a href="#">Racing</a></li>
-                        <li><a href="#">Sports</a></li>
-                        <li><a href="#">RPG</a></li>
-                    </ul>
-                </div>
-
-
-                <!-- Contact -->
-                <div class="footer-contact">
-                    <h3>Contact</h3>
-                    <p>
-                        <i class="fa-solid fa-envelope"></i>
-                        support@ragecore.com
-                    </p>
-
-                    <p>
-                        <i class="fa-solid fa-phone"></i>
-                        +91 99944 11370
-                    </p>
-
-                    <p>
-                        <i class="fa-solid fa-location-dot"></i>
-                        Tamil Nadu, India
-                    </p>
-                </div>
+                </form>
 
             </div>
-            <hr>
 
-            <div class="footer-bottom">
-                <p>
-                    &copy; 2026 RageCore. All Rights Reserved.
-                </p>
-                <p>
-                    Designed & Developed by Team E
-                </p>
-            </div>
         </div>
+
+        <hr>
+
+        <div class="container footer-bottom">
+
+            <p>
+
+                &copy;2026 RageCore. All Rights Reserved.
+
+            </p>
+
+            <p>
+
+                Designed by Team E ❤️
+
+            </p>
+
+        </div>
+
     </footer>
 
 
-
     <!--JAVASCRIPT -->
-
     <script src="js/home.js"></script>
-
     <script src="js/slider.js"></script>
 
 </body>
