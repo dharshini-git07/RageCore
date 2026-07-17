@@ -70,6 +70,62 @@ class Navbar {
 
 }
 
+
+class CountdownTimer {
+    constructor() {
+        this.daysEl = document.getElementById("timer-days");
+        this.hoursEl = document.getElementById("timer-hours");
+        this.minutesEl = document.getElementById("timer-minutes");
+        this.secondsEl = document.getElementById("timer-seconds");
+        this.timerContainer = document.querySelector(".timer-container");
+
+        if (this.daysEl && this.hoursEl && this.minutesEl && this.secondsEl) {
+            this.init();
+        }
+    }
+
+    init() {
+        // Retrieve or set target date in localStorage to maintain state across refreshes
+        let targetTime = localStorage.getItem("ragecore_offer_target");
+        if (!targetTime) {
+            const targetDate = new Date();
+            targetDate.setDate(targetDate.getDate() + 7);
+            targetTime = targetDate.getTime();
+            localStorage.setItem("ragecore_offer_target", targetTime);
+        }
+        
+        this.targetTime = parseInt(targetTime, 10);
+        this.update();
+        this.interval = setInterval(() => this.update(), 1000);
+    }
+
+    update() {
+        const now = new Date().getTime();
+        const difference = this.targetTime - now;
+
+        if (difference <= 0) {
+            clearInterval(this.interval);
+            if (this.timerContainer) {
+                this.timerContainer.innerHTML = '<span class="offer-expired-message">Offer Expired</span>';
+            }
+            return;
+        }
+
+        // Calculation formulas for countdown values
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+        // Render digits with leading zeros
+        this.daysEl.textContent = days < 10 ? "0" + days : days;
+        this.hoursEl.textContent = hours < 10 ? "0" + hours : hours;
+        this.minutesEl.textContent = minutes < 10 ? "0" + minutes : minutes;
+        this.secondsEl.textContent = seconds < 10 ? "0" + seconds : seconds;
+    }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     new Navbar();
+    new CountdownTimer();
 });
