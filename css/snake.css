@@ -1,0 +1,173 @@
+/* =====================================================
+   RAGECORE ARCADE - SNAKE GAME STYLE
+   ===================================================== */
+
+.game-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-xl) 0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.game-card-wrapper {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+}
+
+.game-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--space-md);
+    font-family: var(--heading-font);
+    font-size: var(--fs-md);
+}
+
+.stat-item {
+    background: rgba(0, 0, 0, 0.3);
+    padding: var(--space-xs) var(--space-md);
+    border-radius: var(--radius-sm);
+    border: 1px solid rgba(34, 197, 94, 0.3); /* Green border */
+    color: var(--text-primary);
+}
+
+.stat-value {
+    color: var(--success-color); /* Green */
+    font-weight: var(--fw-bold);
+}
+
+/* Grid-based Snake Board */
+.board-container {
+    width: 100%;
+    height: 400px;
+    background: #0f172a;
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    grid-template-rows: repeat(20, 1fr);
+    gap: 1px;
+    border-radius: var(--radius-md);
+    border: 2px solid var(--success-color);
+    box-shadow: 0 0 15px rgba(34, 197, 94, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Grid Cell Styles */
+.cell {
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 2px;
+}
+
+.snake-body {
+    background: var(--success-color);
+    box-shadow: 0 0 8px var(--success-color);
+    border-radius: 4px;
+}
+
+.snake-head {
+    background: #4ade80 !important; /* Brighter green */
+    box-shadow: 0 0 12px #4ade80 !important;
+    border-radius: 6px;
+}
+
+.food {
+    background: var(--secondary-color); /* Pink */
+    box-shadow: 0 0 10px var(--secondary-color);
+    border-radius: var(--radius-circle);
+    animation: pulse 1s infinite alternate;
+}
+
+/* Animation for Food pulsing */
+@keyframes pulse {
+    0% {
+        transform: scale(0.85);
+        filter: brightness(1);
+    }
+    100% {
+        transform: scale(1.05);
+        filter: brightness(1.3);
+    }
+}
+
+/* Overlay screens */
+.overlay-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(13, 17, 23, 0.9);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    padding: var(--space-md);
+}
+
+.overlay-screen.hidden {
+    display: none !important;
+}
+
+.overlay-screen h2 {
+    font-size: var(--fs-2xl);
+    margin-bottom: var(--space-xs);
+    color: var(--success-color);
+    text-shadow: 0 0 10px rgba(34, 197, 94, 0.5);
+}
+
+.overlay-screen p {
+    margin-bottom: var(--space-lg);
+    font-size: var(--fs-sm);
+}
+
+/* Mobile Controls D-Pad Layout */
+.mobile-dpad {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    margin-top: var(--space-md);
+    gap: 5px;
+}
+
+.dpad-row {
+    display: flex;
+    gap: 5px;
+}
+
+.dpad-btn {
+    width: 60px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    font-size: var(--fs-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+    user-select: none;
+}
+
+.dpad-btn:active {
+    background: var(--success-color);
+    box-shadow: 0 0 10px var(--success-color);
+    color: #000;
+}
+
+/* Show D-pad on mobile screens */
+@media (max-width: 768px) {
+    .mobile-dpad {
+        display: flex;
+    }
+}

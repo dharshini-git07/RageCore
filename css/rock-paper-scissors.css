@@ -1,0 +1,211 @@
+/* =====================================================
+   RAGECORE ARCADE - ROCK PAPER SCISSORS STYLE
+   ===================================================== */
+
+.game-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-xl) 0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.game-card-wrapper {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+}
+
+/* Stats Score Board */
+.game-stats {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: var(--space-lg);
+    font-family: var(--heading-font);
+    font-size: var(--fs-md);
+}
+
+.score-card {
+    background: rgba(0, 0, 0, 0.3);
+    padding: var(--space-sm) var(--space-xl);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    text-align: center;
+    flex: 1;
+    margin: 0 10px;
+}
+
+.score-card.player-score {
+    border-color: rgba(236, 72, 153, 0.3); /* Pink */
+}
+
+.score-card.computer-score {
+    border-color: rgba(6, 182, 212, 0.3); /* Cyan */
+}
+
+.score-title {
+    font-size: var(--fs-xs);
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.score-value {
+    font-size: var(--fs-2xl);
+    font-weight: var(--fw-bold);
+}
+
+.player-score .score-value {
+    color: var(--secondary-color);
+    text-shadow: 0 0 10px rgba(236, 72, 153, 0.4);
+}
+
+.computer-score .score-value {
+    color: var(--accent-color);
+    text-shadow: 0 0 10px rgba(6, 182, 212, 0.4);
+}
+
+/* Battle Arena display */
+.arena-container {
+    width: 100%;
+    height: 180px;
+    background: #111827;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: var(--space-lg);
+}
+
+.fighter-hand {
+    font-size: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.1s;
+    width: 100px;
+    height: 100px;
+}
+
+.fighter-hand.player-hand {
+    color: var(--secondary-color);
+    text-shadow: 0 0 15px var(--secondary-color);
+}
+
+.fighter-hand.computer-hand {
+    color: var(--accent-color);
+    text-shadow: 0 0 15px var(--accent-color);
+    transform: scaleX(-1); /* Mirror hand for computer side */
+}
+
+/* Hands shake animation to count down */
+.fighter-hand.shake-player {
+    animation: playerShake 0.5s ease-in-out infinite alternate;
+}
+
+.fighter-hand.shake-computer {
+    animation: computerShake 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes playerShake {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(25deg); }
+}
+
+@keyframes computerShake {
+    0% { transform: scaleX(-1) rotate(0deg); }
+    100% { transform: scaleX(-1) rotate(25deg); }
+}
+
+/* Versus/Outcome Text */
+.arena-vs {
+    font-family: var(--heading-font);
+    font-size: var(--fs-lg);
+    font-weight: var(--fw-bold);
+    color: var(--text-primary);
+    width: 120px;
+    text-align: center;
+    z-index: 10;
+}
+
+.outcome-text {
+    font-size: var(--fs-md);
+    margin-top: 5px;
+    display: block;
+    text-transform: uppercase;
+}
+
+.outcome-win {
+    color: var(--secondary-color);
+    text-shadow: 0 0 8px var(--secondary-color);
+}
+
+.outcome-lose {
+    color: var(--error-color);
+    text-shadow: 0 0 8px var(--error-color);
+}
+
+.outcome-tie {
+    color: var(--text-secondary);
+}
+
+/* Selection Options Panel */
+.options-title {
+    font-family: var(--heading-font);
+    font-size: var(--fs-sm);
+    color: var(--text-secondary);
+    margin-bottom: var(--space-md);
+    text-transform: uppercase;
+}
+
+.options-grid {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.option-btn {
+    width: 80px;
+    height: 80px;
+    background: #161b22;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-circle);
+    color: var(--text-primary);
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.option-btn:hover:not(.disabled) {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.4);
+    transform: translateY(-4px);
+}
+
+.option-btn:active:not(.disabled) {
+    background: var(--primary-color);
+}
+
+.option-btn.disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+/* Action Control button */
+.controls-panel {
+    margin-top: var(--space-xl);
+}
