@@ -1,0 +1,146 @@
+/* =====================================================
+   GAME STORE - GLOBAL DESIGN VARIABLES
+   Team E - Week 6 Project
+   ===================================================== */
+
+:root {
+
+  /* ==========================================
+     COLORS
+     ========================================== */
+
+  /* Background Colors */
+  --bg-color: #0D1117;
+  --bg-secondary: #161B22;
+  --card-bg: #1F2937;
+
+  /* Brand Colors */
+  --primary-color: #8B5CF6;
+  --secondary-color: #EC4899;
+  --accent-color: #06B6D4;
+
+  /* Status Colors */
+  --success-color: #22C55E;
+  --warning-color: #F59E0B;
+  --error-color: #EF4444;
+
+  /* Text Colors */
+  --text-primary: #F8FAFC;
+  --text-secondary: #CBD5E1;
+
+  /* Border */
+  --border-color: #2A2F3A;
+
+  /* Hover */
+  --hover-color: #A855F7;
+
+  /* ==========================================
+     GRADIENTS
+     ========================================== */
+
+  --primary-gradient: linear-gradient(
+      135deg,
+      #8B5CF6,
+      #EC4899
+  );
+
+  --card-gradient: linear-gradient(
+      180deg,
+      #1F2937,
+      #161B22
+  );
+
+  /* ==========================================
+     TYPOGRAPHY
+     ========================================== */
+
+  --heading-font: "Orbitron";
+  --body-font: "Poppins";
+
+  /* Font Sizes */
+
+  --fs-xs: 12px;
+  --fs-sm: 14px;
+  --fs-md: 16px;
+  --fs-lg: 18px;
+  --fs-xl: 22px;
+  --fs-2xl: 28px;
+  --fs-3xl: 36px;
+  --fs-4xl: 48px;
+
+  /* Font Weights */
+
+  --fw-light: 300;
+  --fw-normal: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  /* ==========================================
+     BORDER RADIUS
+     ========================================== */
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-circle: 50%;
+
+  /* ==========================================
+     SPACING
+     ========================================== */
+
+  --space-xs: 5px;
+  --space-sm: 10px;
+  --space-md: 15px;
+  --space-lg: 20px;
+  --space-xl: 30px;
+  --space-2xl: 40px;
+  --space-3xl: 60px;
+
+  /* ==========================================
+     SHADOWS
+     ========================================== */
+
+  --shadow-sm:
+      0 2px 8px rgba(0,0,0,.2);
+
+  --shadow-md:
+      0 8px 20px rgba(0,0,0,.3);
+
+  --shadow-lg:
+      0 12px 30px rgba(0,0,0,.35);
+
+  --shadow-primary:
+      0 0 15px rgba(139,92,246,.35);
+
+  /* ==========================================
+     TRANSITIONS
+     ========================================== */
+
+  --transition-fast: .2s ease;
+
+  --transition: .3s ease;
+
+  --transition-slow: .5s ease;
+
+  /* ==========================================
+     LAYOUT
+     ========================================== */
+
+  --container-width: 1200px;
+
+  --navbar-height: 80px;
+
+  --footer-padding: 60px;
+
+  /* ==========================================
+     Z-INDEX
+     ========================================== */
+
+  --z-navbar: 1000;
+  --z-dropdown: 1100;
+  --z-modal: 1200;
+  --z-loader: 9999;
+
+}
