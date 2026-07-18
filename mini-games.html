@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Games | RageCore Premium Game Store</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/logo/favicon.png">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/variable.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/slider.css">
+    <link rel="stylesheet" href="css/mini-games.css">
+</head>
+
+<body>
+
+    <!--NAVBAR -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container nav-container">
+                <!-- Logo -->
+                <a href="index.html" class="logo">
+                    <i class="fa-solid fa-gamepad"></i>
+                    <span>RageCore</span>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="games.html">Games</a></li>
+                    <li><a href="#">Categories</a></li>
+                    <li><a href="#">Deals</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+
+                <!-- Search -->
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Search games...">
+                </div>
+
+                <!-- Right Actions -->
+                <div class="nav-actions">
+                    <a href="wishlist.html" title="Wishlist">
+                        <i class="fa-regular fa-heart"></i>
+                    </a>
+                    <a href="cart.html" title="Cart">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </a>
+                    <a href="login.html" title="Profile">
+                        <i class="fa-regular fa-user"></i>
+                    </a>
+                    <button class="menu-btn">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MOBILE SIDEBAR-->
+    <aside class="mobile-sidebar">
+        <div class="sidebar-header">
+            <h2><span>Rage</span>Core</h2>
+            <button class="close-btn">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <ul class="mobile-links">
+            <li><a href="index.html"><i class="fa-solid fa-house"></i>Home</a></li>
+            <li><a href="games.html"><i class="fa-solid fa-gamepad"></i>Games</a></li>
+            <li><a href="#"><i class="fa-solid fa-layer-group"></i>Categories</a></li>
+            <li><a href="wishlist.html"><i class="fa-regular fa-heart"></i>Wishlist</a></li>
+            <li><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i>Cart</a></li>
+            <li><a href="contact.html"><i class="fa-solid fa-envelope"></i>Contact</a></li>
+            <li><a href="login.html"><i class="fa-regular fa-user"></i>Login</a></li>
+        </ul>
+    </aside>
+    <div class="sidebar-overlay"></div>
+
+    <!-- MAIN ARCADE SECTION -->
+    <main class="arcade-main">
+        <div class="container">
+            <header class="arcade-header">
+                <span class="badge">RageCore Arcade</span>
+                <h1>Browser Mini Games</h1>
+                <p>Play instantly right in your browser. Complete challenges, set high scores, and test your gaming skills with no installations required.</p>
+            </header>
+
+            <div class="arcade-grid">
+                <!-- Game 1: Dash Cars -->
+                <div class="arcade-card car-card">
+                    <div class="arcade-card-image">
+                        <img src="assets/images/games/dash-cars.png" alt="Dash Cars">
+                        <div class="arcade-card-badge">Hot</div>
+                    </div>
+                    <div class="arcade-card-content">
+                        <h3>Dash Cars</h3>
+                        <p>Dodge obstacles, speed through tracks, and dash past other drivers in this intense high-speed reflex game.</p>
+                        <a href="dash-cars.html" class="btn btn-primary play-btn">Play Now</a>
+                    </div>
+                </div>
+
+                <!-- Game 2: Snake -->
+                <div class="arcade-card snake-card">
+                    <div class="arcade-card-image">
+                        <img src="assets/images/games/snake.png" alt="Snake Game">
+                        <div class="arcade-card-badge">Classic</div>
+                    </div>
+                    <div class="arcade-card-content">
+                        <h3>Snake Game</h3>
+                        <p>Eat glowing energy blocks, grow your length, and navigate carefully without colliding into boundaries or your own tail.</p>
+                        <a href="snake.html" class="btn btn-primary play-btn">Play Now</a>
+                    </div>
+                </div>
+
+                <!-- Game 3: Tic Tac Toe -->
+                <div class="arcade-card tictactoe-card">
+                    <div class="arcade-card-image">
+                        <img src="assets/images/games/tic-tac-toe.png" alt="Tic Tac Toe">
+                    </div>
+                    <div class="arcade-card-content">
+                        <h3>Tic Tac Toe</h3>
+                        <p>The timeless game of alignment strategy. Outsmart the smart AI engine or match symbols in the classic local 2-player mode.</p>
+                        <a href="tic-tac-toe.html" class="btn btn-primary play-btn">Play Now</a>
+                    </div>
+                </div>
+
+                <!-- Game 4: Memory Card Game -->
+                <div class="arcade-card memory-card">
+                    <div class="arcade-card-image">
+                        <img src="assets/images/games/memory-game.png" alt="Memory Game">
+                        <div class="arcade-card-badge">Mind</div>
+                    </div>
+                    <div class="arcade-card-content">
+                        <h3>Memory Game</h3>
+                        <p>Flip tiles, match matching game symbols, and train your visual memory to clear the board in minimum flips.</p>
+                        <a href="memory-game.html" class="btn btn-primary play-btn">Play Now</a>
+                    </div>
+                </div>
+
+                <!-- Game 5: Rock Paper Scissors -->
+                <div class="arcade-card rps-card">
+                    <div class="arcade-card-image">
+                        <img src="assets/images/games/rock-paper-scissors.png" alt="Rock Paper Scissors">
+                    </div>
+                    <div class="arcade-card-content">
+                        <h3>Rock Paper Scissors</h3>
+                        <p>Match signs against the store computer in a best-of-five showdown. Anticipate turns and claim victory.</p>
+                        <a href="rock-paper-scissors.html" class="btn btn-primary play-btn">Play Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER-->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-about">
+                <a href="index.html" class="footer-logo">
+                    <i class="fa-solid fa-gamepad"></i>
+                    <span>Rage</span>Core
+                </a>
+                <p>Discover PC games, exclusive deals, and an immersive gaming experience with RageCore.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fa-brands fa-discord"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="games.html">Games</a></li>
+                    <li><a href="mini-games.html">Mini Games</a></li>
+                    <li><a href="wishlist.html">Wishlist</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h3>Categories</h3>
+                <ul>
+                    <li><a href="games.html">Action</a></li>
+                    <li><a href="games.html">Racing</a></li>
+                    <li><a href="games.html">Sports</a></li>
+                    <li><a href="games.html">RPG</a></li>
+                    <li><a href="games.html">Adventure</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-newsletter">
+                <h3>Newsletter</h3>
+                <p>Subscribe to receive the latest game releases and offers.</p>
+                <form>
+                    <div class="newsletter-box">
+                        <input type="email" placeholder="Enter your email">
+                        <button type="submit">
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="container footer-bottom">
+            <p>&copy;2026 RageCore. All Rights Reserved.</p>
+            <p>Designed by Team E ❤️</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script src="js/home.js"></script>
+
+</body>
+
+</html>

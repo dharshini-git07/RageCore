@@ -560,30 +560,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-/* ===== theme toggle (shared with store via localStorage) ===== */
+/* ===== theme toggle (shared across ALL pages via localStorage) ===== */
 (function () {
   var root = document.documentElement;
-  var toggleBtn = document.getElementById('themeToggle');
-  var switchInput = document.getElementById('brightModeSwitch');
 
   function get(k){ try{ return window.localStorage.getItem(k); }catch(e){ return null; } }
   function set(k,v){ try{ window.localStorage.setItem(k,v); }catch(e){} }
 
-  function applyTheme(isLight) {
+  // Applies the theme to <html> + updates the toggle switch UI if it exists on this page.
+  function applyTheme(isLight, switchInput) {
     if (isLight) root.setAttribute('data-theme', 'light');
     else root.removeAttribute('data-theme');
-    switchInput.checked = isLight;
+    if (switchInput) switchInput.checked = isLight;
     set('ragecore-theme', isLight ? 'light' : 'dark');
   }
 
-  applyTheme(get('ragecore-theme') === 'light');
+  // 1. ALWAYS apply the saved theme on every page load, regardless of
+  //    whether this page has the toggle button (fixes theme not
+  //    carrying over to index.html, games.html, contact.html, etc.)
+  var switchInputOnLoad = document.getElementById('brightModeSwitch');
+  applyTheme(get('ragecore-theme') === 'light', switchInputOnLoad);
 
-  toggleBtn.addEventListener('click', function () {
-    applyTheme(root.getAttribute('data-theme') !== 'light');
-  });
-  switchInput.addEventListener('change', function () {
-    applyTheme(switchInput.checked);
-  });
+  // 2. ONLY wire up the click/change listeners if the toggle UI exists
+  //    on this page (currently just profile.html).
+  var toggleBtn = document.getElementById('themeToggle');
+  var switchInput = document.getElementById('brightModeSwitch');
+
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', function () {
+      applyTheme(root.getAttribute('data-theme') !== 'light', switchInput);
+    });
+  }
+  if (switchInput) {
+    switchInput.addEventListener('change', function () {
+      applyTheme(switchInput.checked, switchInput);
+    });
+  }
 })();
 
 /* ===== Avatar picker (persists via localStorage) ===== */
@@ -596,6 +608,7 @@ document.addEventListener('DOMContentLoaded', () => {
   var cancelBtn = document.getElementById('avatarCancelBtn');
   var confirmBtn = document.getElementById('avatarConfirmBtn');
   var selectedIndex = null;
+  if (!editBtn || !ringWrap || !ringInner || !overlay) return; // not on profile page, skip safely
 
   function get(k){ try{ return window.localStorage.getItem(k); }catch(e){ return null; } }
   function set(k,v){ try{ window.localStorage.setItem(k,v); }catch(e){} }
@@ -620,7 +633,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   editBtn.addEventListener('click', openModal);
   ringWrap.addEventListener('click', openModal);
-  cancelBtn.addEventListener('click', closeModal);
+  if (cancelBtn) cancelBtn.addEventListener('click', closeModal);
   overlay.addEventListener('click', function (e) { if (e.target === overlay) closeModal(); });
 
   options.forEach(function (opt) {
@@ -631,12 +644,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  confirmBtn.addEventListener('click', function () {
-    if (selectedIndex === null) { closeModal(); return; }
-    applyAvatar(selectedIndex);
-    set('ragecore-avatar', selectedIndex);
-    closeModal();
-  });
+  if (confirmBtn) {
+    confirmBtn.addEventListener('click', function () {
+      if (selectedIndex === null) { closeModal(); return; }
+      applyAvatar(selectedIndex);
+      set('ragecore-avatar', selectedIndex);
+      closeModal();
+    });
+  }
 })();
 
 /* ===== Persisted profile fields (username, email, mobile, country) ===== */
@@ -650,7 +665,7 @@ var PROFILE_FIELD_KEYS = {
 function psGet(k){ try{ return window.localStorage.getItem(k); }catch(e){ return null; } }
 function psSet(k,v){ try{ window.localStorage.setItem(k,v); }catch(e){} }
 
-// Restore saved field values on load
+// Restore saved field values on load (only runs if these elements exist, e.g. profile.html)
 Object.keys(PROFILE_FIELD_KEYS).forEach(function (fieldId) {
   var saved = psGet(PROFILE_FIELD_KEYS[fieldId]);
   if (saved) {
@@ -658,14 +673,19 @@ Object.keys(PROFILE_FIELD_KEYS).forEach(function (fieldId) {
     if (el) el.textContent = saved;
   }
 });
+
 var savedUsername = psGet(PROFILE_FIELD_KEYS.fieldUsername);
-if (savedUsername) document.getElementById('profileName').textContent = savedUsername;
+var profileNameElForRestore = document.getElementById('profileName');
+if (savedUsername && profileNameElForRestore) {
+  profileNameElForRestore.textContent = savedUsername;
+}
 
 /* ===== Username edit (sidebar name) ===== */
 (function () {
   var nameEditBtn = document.getElementById('nameEditBtn');
   var nameSpan = document.getElementById('profileName');
   var fieldUsername = document.getElementById('fieldUsername');
+  if (!nameEditBtn || !nameSpan || !fieldUsername) return; // not on profile page, skip safely
 
   nameEditBtn.addEventListener('click', function () {
     var currentName = nameSpan.textContent.trim();
@@ -702,6 +722,7 @@ document.querySelectorAll('.field-edit').forEach(function (btn) {
   if (targetId === 'none') return;
   btn.addEventListener('click', function () {
     var span = document.getElementById(targetId);
+    if (!span) return;
     var current = span.textContent.trim();
     var input = document.createElement('input');
     input.type = 'text';
@@ -722,7 +743,8 @@ document.querySelectorAll('.field-edit').forEach(function (btn) {
       if (storeKey) psSet(storeKey, newVal);
 
       if (targetId === 'fieldUsername') {
-        document.getElementById('profileName').textContent = newVal;
+        var profileNameEl = document.getElementById('profileName');
+        if (profileNameEl) profileNameEl.textContent = newVal;
       }
     }
     input.addEventListener('keydown', function (e) {
@@ -732,3 +754,24 @@ document.querySelectorAll('.field-edit').forEach(function (btn) {
     input.addEventListener('blur', commit);
   });
 });
+
+/* ===== Nav profile icon: route based on login state ===== */
+(function () {
+  function goToProfileOrLogin(e) {
+    e.preventDefault();
+    var loggedInUser = null;
+    try { loggedInUser = localStorage.getItem('loggedInUser'); } catch (err) {}
+
+    if (loggedInUser) {
+      window.location.href = 'profile.html';
+    } else {
+      window.location.href = 'login.html';
+    }
+  }
+
+  var navBtn = document.getElementById('profileNavBtn');
+  if (navBtn) navBtn.addEventListener('click', goToProfileOrLogin);
+
+  var navBtnMobile = document.getElementById('profileNavBtnMobile');
+  if (navBtnMobile) navBtnMobile.addEventListener('click', goToProfileOrLogin);
+})();

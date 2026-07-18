@@ -4,13 +4,214 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us | Game Store - Team E</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/Dakshith.css">
-  \
+
+    <!-- Font Awesome (needed for navbar icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Shared site CSS (needed for the navbar to render correctly) -->
+    <link rel="stylesheet" href="css/variable.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/home.css">
+
+    <!-- Contact page specific CSS -->
+    <link rel="stylesheet" href="css/Dakshith.css">
+
+    <style>
+        /* Push page content below the fixed navbar (navbar height = 80px) */
+        .contact-page { padding-top: 80px; }
+    </style>
 </head>
 <body>
+
+    <!--NAVBAR -->
+    <header class="header">
+
+        <nav class="navbar">
+
+            <div class="container nav-container">
+
+                <!-- Logo -->
+
+                <a href="index.html" class="logo">
+                    <i class="fa-solid fa-gamepad"></i>
+                    <span>RageCore</span>
+                </a>
+
+                <!-- Desktop Navigation -->
+
+                <ul class="nav-links">
+
+                    <li><a href="index.html">Home</a></li>
+
+                    <li><a href="games.html">Games</a></li>
+
+                    <li><a href="#">Categories</a></li>
+
+                    <li><a href="#">Deals</a></li>
+
+                    <li><a href="contact.html" class="active">Contact</a></li>
+
+                </ul>
+
+                <!-- Search -->
+
+                <div class="search-box">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input type="text" placeholder="Search games...">
+
+                </div>
+
+                <!-- Right Icons -->
+
+                <div class="nav-actions">
+
+                    <a href="wishlist.html" title="Wishlist">
+
+                        <i class="fa-regular fa-heart"></i>
+
+                    </a>
+
+                    <a href="cart.html" title="Cart">
+
+                        <i class="fa-solid fa-cart-shopping"></i>
+
+                    </a>
+
+                   <a href="login.html" id="profileNavBtn" title="Profile">
+    <i class="fa-regular fa-user"></i>
+</a>
+
+                    <button class="menu-btn">
+
+                        <i class="fa-solid fa-bars"></i>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+    <!-- MOBILE SIDEBAR-->
+
+    <aside class="mobile-sidebar">
+
+        <div class="sidebar-header">
+
+            <h2>
+
+                <span>Rage</span>Core
+
+            </h2>
+
+            <button class="close-btn">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+        <ul class="mobile-links">
+
+            <li>
+
+                <a href="index.html">
+
+                    <i class="fa-solid fa-house"></i>
+
+                    Home
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="games.html">
+
+                    <i class="fa-solid fa-gamepad"></i>
+
+                    Games
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="#">
+
+                    <i class="fa-solid fa-layer-group"></i>
+
+                    Categories
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="wishlist.html">
+
+                    <i class="fa-regular fa-heart"></i>
+
+                    Wishlist
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="cart.html">
+
+                    <i class="fa-solid fa-cart-shopping"></i>
+
+                    Cart
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="contact.html">
+
+                    <i class="fa-solid fa-envelope"></i>
+
+                    Contact
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="login.html">
+
+                    <i class="fa-regular fa-user"></i>
+
+                    Login
+
+                </a>
+
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <div class="sidebar-overlay"></div>
 
     <section class="contact-page" id="contact-page-section">
         <div class="contact-page-inner">
@@ -20,7 +221,7 @@
                 <div class="hero-bg-image" id="hero-bg-image"></div>
                 <div class="hero-vignette"></div>
 
-                <div class="hero-content" id="hero-content">
+                <div id="hero-content">
                     <span class="hero-eyebrow">WE'D LOVE TO HEAR FROM YOU</span>
                     <h1 class="hero-title">VISIT THE <span class="text-gradient">ARENA</span></h1>
                     <p class="hero-subtext">Questions about an order, a game key, or a refund? Our support crew is online 24/7 to help.</p>
@@ -212,6 +413,8 @@
         </div>
     </section>
 
+    <!--JAVASCRIPT -->
+    <script src="js/home.js"></script>
     <script src="Javascript/Dakshith.js"></script>
 </body>
 </html>

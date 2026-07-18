@@ -4,28 +4,61 @@
    ===================================================== */
 
 :root {
-  /* Colors */
+
+  /* ==========================================
+     COLORS
+     ========================================== */
+
+  /* Background Colors */
   --bg-color: #0D1117;
   --bg-secondary: #161B22;
   --card-bg: #1F2937;
+
+  /* Brand Colors */
   --primary-color: #8B5CF6;
   --secondary-color: #EC4899;
   --accent-color: #06B6D4;
+
+  /* Status Colors */
   --success-color: #22C55E;
   --warning-color: #F59E0B;
   --error-color: #EF4444;
+
+  /* Text Colors */
   --text-primary: #F8FAFC;
   --text-secondary: #CBD5E1;
+
+  /* Border */
   --border-color: #2A2F3A;
+
+  /* Hover */
   --hover-color: #A855F7;
 
-  /* Gradients */
-  --primary-gradient: linear-gradient(135deg, #8B5CF6, #EC4899);
-  --card-gradient: linear-gradient(180deg, #1F2937, #161B22);
+  /* ==========================================
+     GRADIENTS
+     ========================================== */
 
-  /* Typography */
+  --primary-gradient: linear-gradient(
+      135deg,
+      #8B5CF6,
+      #EC4899
+  );
+
+  --card-gradient: linear-gradient(
+      180deg,
+      #1F2937,
+      #161B22
+  );
+
+  /* ==========================================
+     TYPOGRAPHY
+     ========================================== */
+
   --heading-font: "Orbitron", sans-serif;
   --body-font: "Poppins", sans-serif;
+
+  /* Font Sizes */
+
   --fs-xs: 12px;
   --fs-sm: 14px;
   --fs-md: 16px;
@@ -34,20 +67,29 @@
   --fs-2xl: 28px;
   --fs-3xl: 36px;
   --fs-4xl: 48px;
+
+  /* Font Weights */
+
   --fw-light: 300;
   --fw-normal: 400;
   --fw-medium: 500;
   --fw-semibold: 600;
   --fw-bold: 700;
 
-  /* Border Radius */
+  /* ==========================================
+     BORDER RADIUS
+     ========================================== */
+
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 16px;
   --radius-xl: 24px;
   --radius-circle: 50%;
 
-  /* Spacing */
+  /* ==========================================
+     SPACING
+     ========================================== */
+
   --space-xs: 5px;
   --space-sm: 10px;
   --space-md: 15px;
@@ -56,325 +98,72 @@
   --space-2xl: 40px;
   --space-3xl: 60px;
 
-  /* Shadows */
-  --shadow-sm: 0 2px 8px rgba(0,0,0,.2);
-  --shadow-md: 0 8px 20px rgba(0,0,0,.3);
-  --shadow-lg: 0 12px 30px rgba(0,0,0,.35);
-  --shadow-primary: 0 0 15px rgba(139,92,246,.35);
+  /* ==========================================
+     SHADOWS
+     ========================================== */
 
-  /* Transitions */
+  --shadow-sm:
+      0 2px 8px rgba(0,0,0,.2);
+
+  --shadow-md:
+      0 8px 20px rgba(0,0,0,.3);
+
+  --shadow-lg:
+      0 12px 30px rgba(0,0,0,.35);
+
+  --shadow-primary:
+      0 0 15px rgba(139,92,246,.35);
+
+  /* ==========================================
+     TRANSITIONS
+     ========================================== */
+
   --transition-fast: .2s ease;
+
   --transition: .3s ease;
+
   --transition-slow: .5s ease;
+
+  /* ==========================================
+     LAYOUT
+     ========================================== */
+
+  --container-width: 1200px;
+
+  --navbar-height: 80px;
+
+  --footer-padding: 60px;
+
+  /* ==========================================
+     Z-INDEX
+     ========================================== */
+
+  --z-navbar: 1000;
+  --z-dropdown: 1100;
+  --z-modal: 1200;
+  --z-loader: 9999;
+
 }
 
-/* =====================================================
-   RESET & BASE STYLES
-   ===================================================== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body.register-page {
-    background-color: var(--bg-color);
-    color: var(--text-primary);
-    font-family: var(--body-font);
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: var(--space-lg);
-}
-
-/* =====================================================
-   CONTAINER LAYOUT
-   ===================================================== */
-.register-box {
-    display: flex;
-    width: 100%;
-    max-width: 1000px; /* Clean, contained width */
-    background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-lg);
-    overflow: hidden; /* Keeps inner items within border radius */
-}
-
-/* =====================================================
-   LEFT PANEL (BRANDING)
-   ===================================================== */
-.brand-panel {
-    flex: 1;
-    background: linear-gradient(rgba(13, 17, 23, 0.8), rgba(13, 17, 23, 0.95)), 
-                url('https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=800&auto=format&fit=crop') center/cover;
-    padding: var(--space-2xl);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    border-right: 1px solid var(--border-color);
-}
-
-.brand-content-inner h2 {
-    font-family: var(--heading-font);
-    font-size: var(--fs-2xl);
-    font-weight: var(--fw-bold);
-    background: var(--primary-gradient);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    margin-bottom: var(--space-md);
-    letter-spacing: 1px;
-}
-
-.brand-content-inner p {
-    color: var(--text-secondary);
-    font-size: var(--fs-sm);
-    line-height: 1.6;
-    margin-bottom: var(--space-lg);
-}
-
-.brand-content-inner strong { color: var(--text-primary); }
-
-.alt-login-btn {
-    display: inline-block;
-    padding: var(--space-sm) var(--space-lg);
-    border: 1px solid var(--primary-color);
-    color: var(--primary-color);
-    text-decoration: none;
-    font-family: var(--heading-font);
-    font-size: var(--fs-sm);
-    font-weight: var(--fw-semibold);
-    border-radius: var(--radius-sm);
-    transition: var(--transition);
-    text-transform: uppercase;
-    width: fit-content;
-}
-
-.alt-login-btn:hover {
-    background: var(--primary-color);
-    color: #fff;
-    box-shadow: var(--shadow-primary);
-}
-
-/* =====================================================
-   RIGHT PANEL (FORM)
-   ===================================================== */
-.form-panel {
-    flex: 1.2;
-    padding: var(--space-2xl);
-    background-image: var(--card-gradient);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-#form-heading {
-    font-family: var(--heading-font);
-    font-size: var(--fs-xl);
-    font-weight: var(--fw-bold);
-    margin-bottom: var(--space-xl);
-    padding-bottom: var(--space-sm);
-    border-bottom: 1px solid var(--border-color);
-    letter-spacing: 1px;
-}
-
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-lg);
-}
-
-.input-group {
-    margin-bottom: var(--space-lg);
-    position: relative;
-    padding-bottom: 20px; /* Pre-allocated space for error msg to prevent layout shift */
-}
-
-.field-title {
-    display: block;
-    font-size: var(--fs-xs);
-    font-weight: var(--fw-medium);
-    color: var(--text-secondary);
-    margin-bottom: var(--space-xs);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-/* Structured Inputs */
-.input-wrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
-.input-wrapper input {
-    width: 100%;
-    background-color: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-sm);
-    padding: 12px var(--space-md);
-    color: var(--text-primary);
-    font-family: var(--body-font);
-    font-size: var(--fs-sm);
-    outline: none;
-    transition: var(--transition-fast);
-}
-
-.input-wrapper input:focus {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.2);
-}
-
-/* Checkbox Styling */
-.consent-box {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-    cursor: pointer;
-    user-select: none;
-}
-
-.consent-box input { display: none; }
-
-.custom-checkmark {
-    width: 18px;
-    height: 18px;
-    background-color: var(--bg-secondary);
-    border: 2px solid var(--border-color);
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: var(--transition-fast);
-}
-
-.consent-box input:checked ~ .custom-checkmark {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-}
-
-.custom-checkmark::after {
-    content: "";
-    width: 4px;
-    height: 8px;
-    border: solid white;
-    border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
-    display: none;
-}
-
-.consent-box input:checked ~ .custom-checkmark::after { display: block; }
-
-.consent-text { font-size: var(--fs-xs); color: var(--text-secondary); }
-.consent-text a { color: var(--primary-color); text-decoration: none; transition: var(--transition-fast); }
-.consent-text a:hover { color: var(--hover-color); text-decoration: underline; }
-
-/* Submit Button */
-#register-submit-btn {
-    width: 100%;
-    padding: var(--space-md);
-    margin-top: var(--space-sm);
-    background: var(--primary-gradient);
-    color: white;
-    border: none;
-    border-radius: var(--radius-sm);
-    font-family: var(--heading-font);
-    font-size: var(--fs-md);
-    font-weight: var(--fw-bold);
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-#register-submit-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-primary);
-}
-
-/* =====================================================
-   JAVASCRIPT VALIDATION & ANIMATION STYLES
-   ===================================================== */
-
-/* Error Messages - Absolute positioned to avoid layout jumping */
-.error-msg {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    font-size: 11px;
-    color: var(--error-color);
-    font-weight: var(--fw-medium);
-    opacity: 0;
-    transform: translateY(-5px);
-    transition: var(--transition-fast);
-}
-
-.error-msg.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Validation Border Colors */
-.input-wrapper input.invalid { border-color: var(--error-color); }
-.input-wrapper input.valid { border-color: var(--success-color); }
-
-/* Eye Toggle Icon */
-.toggle-password {
-    position: absolute;
-    right: 12px;
-    background: none;
-    border: none;
-    color: var(--text-secondary);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    transition: var(--transition-fast);
-}
-
-.toggle-password:hover { color: var(--primary-color); }
-.toggle-password svg { width: 18px; height: 18px; }
-
-/* Password Rules Tracker */
-.password-tracker {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    font-size: 11px;
-    color: var(--text-secondary);
-    opacity: 0;
-    height: 0;
-    overflow: hidden;
-    transition: var(--transition);
-    padding-left: 5px;
-}
-
-.password-tracker.active {
-    opacity: 1;
-    height: auto;
-    margin-top: 5px;
-}
-
-.req-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: var(--transition-fast);
-}
-
-.req-item svg { width: 12px; height: 12px; fill: currentColor; }
-.req-item.met { color: var(--success-color); font-weight: var(--fw-medium); }
-
-/* =====================================================
-   RESPONSIVE DESIGN
-   ===================================================== */
-@media (max-width: 850px) {
-    .register-box { flex-direction: column; max-width: 500px; margin: 0 auto; }
-    .brand-panel { padding: var(--space-xl); border-right: none; border-bottom: 1px solid var(--border-color); }
-    .form-panel { padding: var(--space-xl); }
-}
-
-@media (max-width: 480px) {
-    .form-row { grid-template-columns: 1fr; gap: 0; }
-    .brand-panel, .form-panel { padding: var(--space-lg); }
+/* ==========================================
+   BRIGHT / LIGHT MODE
+   Applied to <html> whenever data-theme="light"
+   is set (see Dakshith.js theme toggle logic).
+   This is shared globally so EVERY page that
+   links this file (index, games, contact,
+   login, register, profile, etc.) gets bright
+   mode, not just profile.html.
+   ========================================== */
+html[data-theme="light"] {
+  --bg-color: #F3F4F8;
+  --bg-secondary: #FFFFFF;
+  --card-bg: #FFFFFF;
+  --text-primary: #10131A;
+  --text-secondary: #4B5563;
+  --border-color: #E2E4EA;
+  --card-gradient: linear-gradient(180deg, #FFFFFF, #F7F7FB);
+  --shadow-sm: 0 2px 8px rgba(20,20,40,.06);
+  --shadow-md: 0 8px 20px rgba(20,20,40,.08);
+  --shadow-lg: 0 12px 30px rgba(20,20,40,.10);
+  --shadow-primary: 0 0 15px rgba(139,92,246,.20);
 }

@@ -1,0 +1,169 @@
+/* =====================================================
+   RAGECORE ARCADE - TIC TAC TOE GAME STYLE
+   ===================================================== */
+
+.game-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-xl) 0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.game-card-wrapper {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+    position: relative;
+}
+
+/* Mode Switch Tabs */
+.mode-tabs {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-lg);
+}
+
+.mode-btn {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-md);
+    font-weight: var(--fw-semibold);
+    font-size: var(--fs-sm);
+    transition: all 0.2s ease;
+}
+
+.mode-btn.active {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--text-primary);
+    box-shadow: 0 0 10px rgba(139, 92, 246, 0.4);
+}
+
+/* Game Status Alert */
+.game-status {
+    font-family: var(--heading-font);
+    font-size: var(--fs-md);
+    color: var(--text-primary);
+    margin-bottom: var(--space-md);
+    height: 30px;
+}
+
+/* 3x3 Tic Tac Toe Grid Board */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 12px;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: rgba(0, 0, 0, 0.2);
+    padding: var(--space-sm);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    position: relative;
+}
+
+/* Grid Cells styling */
+.cell {
+    background: #161b22;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--heading-font);
+    font-size: 2.5rem;
+    font-weight: var(--fw-bold);
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.cell:hover:not(.taken) {
+    background: rgba(139, 92, 246, 0.1);
+    border-color: var(--primary-color);
+    box-shadow: inset 0 0 10px rgba(139, 92, 246, 0.2);
+}
+
+/* Symbols Styling */
+.cell.x-mark {
+    color: var(--secondary-color); /* Pink */
+    text-shadow: 0 0 12px var(--secondary-color);
+    animation: zoomIn 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.cell.o-mark {
+    color: var(--accent-color); /* Cyan */
+    text-shadow: 0 0 12px var(--accent-color);
+    animation: zoomIn 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Mark insertion animation */
+@keyframes zoomIn {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Overlay Screen styles */
+.overlay-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(13, 17, 23, 0.9);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    border-radius: var(--radius-md);
+    padding: var(--space-md);
+}
+
+.overlay-screen.hidden {
+    display: none !important;
+}
+
+.overlay-screen h2 {
+    font-size: var(--fs-2xl);
+    margin-bottom: var(--space-sm);
+    text-transform: uppercase;
+}
+
+.overlay-screen.win-screen h2 {
+    color: var(--secondary-color);
+    text-shadow: 0 0 10px rgba(236, 72, 153, 0.5);
+}
+
+.overlay-screen.draw-screen h2 {
+    color: var(--accent-color);
+    text-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
+}
+
+/* Action controls */
+.controls-panel {
+    margin-top: var(--space-lg);
+}
+
+.btn-restart-game {
+    width: 100%;
+}

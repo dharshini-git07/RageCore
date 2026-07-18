@@ -1,0 +1,222 @@
+/* =====================================================
+   RAGECORE - MINI GAMES PAGE STYLES
+   ===================================================== */
+
+.arcade-main {
+    padding: 120px 0 80px;
+    background: var(--bg-color);
+    min-height: 80vh;
+}
+
+.arcade-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px;
+}
+
+.arcade-header .badge {
+    margin-bottom: 15px;
+}
+
+.arcade-header h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    font-family: var(--heading-font);
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.arcade-header p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+}
+
+/* Grid Layout */
+.arcade-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+/* Card Styling */
+.arcade-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+    position: relative;
+}
+
+.arcade-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-primary);
+}
+
+/* Card Header Banner Image Wrapper */
+.arcade-card-image {
+    height: 190px;
+    position: relative;
+    overflow: hidden;
+    background: var(--bg-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.arcade-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.arcade-card:hover .arcade-card-image img {
+    transform: scale(1.1);
+}
+
+.arcade-card-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--primary-gradient);
+    padding: 5px 12px;
+    border-radius: 30px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 10px rgba(139, 92, 246, 0.3);
+    z-index: 3;
+}
+
+/* Card Content styling */
+.arcade-card-content {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.arcade-card-content h3 {
+    font-size: 22px;
+    margin-bottom: 12px;
+    font-family: var(--heading-font);
+    color: var(--text-primary);
+}
+
+.arcade-card-content p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: 25px;
+    flex-grow: 1;
+}
+
+.play-btn {
+    width: 100%;
+    height: 48px;
+    font-weight: 600;
+    font-family: var(--heading-font);
+    letter-spacing: 1px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+    .arcade-main {
+        padding: 100px 0 60px;
+    }
+    
+    .arcade-header h1 {
+        font-size: 2.8rem;
+    }
+    
+    .arcade-grid {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 767px) {
+    .arcade-main {
+        padding: 90px 0 50px;
+    }
+    
+    .arcade-header {
+        margin-bottom: 35px;
+    }
+    
+    .arcade-header h1 {
+        font-size: 2.2rem;
+    }
+    
+    .arcade-header p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .arcade-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 15px !important;
+    }
+
+    .arcade-card-image {
+        height: 120px;
+    }
+
+    .arcade-card-content {
+        padding: 15px;
+    }
+
+    .arcade-card-content h3 {
+        font-size: 15px;
+        margin-bottom: 8px;
+    }
+
+    .arcade-card-content p {
+        font-size: 12px;
+        line-height: 1.4;
+        margin-bottom: 15px;
+    }
+
+    .play-btn {
+        height: 38px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 479px) {
+    .arcade-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .arcade-card-image {
+        height: 100px;
+    }
+    
+    .arcade-card-content {
+        padding: 12px;
+    }
+
+    .arcade-card-content h3 {
+        font-size: 14px;
+        margin-bottom: 6px;
+    }
+    
+    .arcade-card-content p {
+        font-size: 11px;
+        margin-bottom: 12px;
+    }
+
+    .play-btn {
+        height: 34px;
+        font-size: 11px;
+    }
+}
