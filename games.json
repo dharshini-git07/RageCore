@@ -1,0 +1,290 @@
+[
+    {
+        "id": 1,
+        "title": "Forza Horizon 5",
+        "category": "Racing",
+        "price": 2499,
+        "originalPrice": 3999,
+        "discount": 38,
+        "featured": true,
+        "trending": true,
+        "rating": 4.8,
+        "image": "assets/images/games/forza-horizon-5.jpg",
+        "description": "Race across the vibrant open-world landscapes of Mexico with hundreds of the world's greatest cars.",
+        "screenshots": [
+            "assets/images/games/forza-horizon-5.jpg",
+            "assets/images/games/forza-horizon-5.jpg",
+            "assets/images/games/forza-horizon-5.jpg"
+        ],
+        "requirements": {
+            "os": "Windows 10 (64-bit)",
+            "processor": "Intel Core i5-4460 / Ryzen 3 1200",
+            "ram": "8 GB",
+            "storage": "110 GB"
+        }
+    },
+    {
+        "id": 2,
+        "title": "Grand Theft Auto V",
+        "category": "Action",
+        "price": 1499,
+        "originalPrice": 2999,
+        "discount": 50,
+        "featured": true,
+        "trending": true,
+        "rating": 4.9,
+        "image": "assets/images/games/gta-v.jpg",
+        "description": "Experience Los Santos in one of the greatest open-world action games ever created.",
+        "screenshots": [
+            "assets/images/games/gta-v.jpg",
+            "assets/images/games/gta-v.jpg",
+            "assets/images/games/gta-v.jpg"
+        ],
+        "requirements": {
+            "os": "Windows 10 (64-bit)",
+            "processor": "Intel Core i5-3470",
+            "ram": "8 GB",
+            "storage": "72 GB"
+        }
+    },
+    {
+        "id": 3,
+        "title": "Black Myth: Wukong",
+        "category": "RPG",
+        "price": 3599,
+        "originalPrice": 4999,
+        "discount": 28,
+        "featured": true,
+        "trending": true,
+        "rating": 4.9,
+        "image": "assets/images/games/black-myth-wukong.jpg",
+        "description": "Embark on a mythical journey inspired by Journey to the West with breathtaking combat.",
+        "screenshots": [
+            "assets/images/games/black-myth-wukong.jpg",
+            "assets/images/games/black-myth-wukong.jpg",
+            "assets/images/games/black-myth-wukong.jpg"
+        ],
+        "requirements": {
+            "os": "Windows 10 (64-bit)",
+            "processor": "Intel Core i7-9700",
+            "ram": "16 GB",
+            "storage": "130 GB"
+        }
+    },
+    {
+        "id": 4,
+        "title": "Cyberpunk 2077",
+        "category": "RPG",
+        "price": 2999,
+        "originalPrice": 3999,
+        "discount": 25,
+        "featured": true,
+        "trending": false,
+        "rating": 4.7,
+        "image": "assets/images/games/cyberpunk-2077.jpg",
+        "description": "Explore the futuristic Night City in an action-packed open-world RPG adventure.",
+        "screenshots": [
+            "assets/images/games/cyberpunk-2077.jpg",
+            "assets/images/games/cyberpunk-2077.jpg",
+            "assets/images/games/cyberpunk-2077.jpg"
+        ],
+        "requirements": {
+            "os": "Windows 10 (64-bit)",
+            "processor": "Intel Core i7-6700",
+            "ram": "12 GB",
+            "storage": "70 GB"
+        }
+    },
+    {
+        "id": 5,
+        "title": "Elden Ring",
+        "category": "RPG",
+        "price": 3299,
+        "originalPrice": 4599,
+        "discount": 28,
+        "featured": true,
+        "trending": true,
+        "rating": 4.9,
+        "image": "assets/images/games/elden-ring.jpg",
+        "description": "Explore the Lands Between in FromSoftware's award-winning fantasy RPG.",
+        "screenshots": [
+            "assets/images/games/elden-ring.jpg",
+            "assets/images/games/elden-ring.jpg",
+            "assets/images/games/elden-ring.jpg"
+        ],
+        "requirements": {
+            "os": "Windows 10 (64-bit)",
+            "processor": "Intel Core i7-8700K",
+            "ram": "12 GB",
+            "storage": "60 GB"
+        }
+    },
+    {
+        "id": 6,
+        "title": "EA FC 26",
+        "category": "Sports",
+        "price": 3999,
+        "originalPrice": 4999,
+        "discount": 20,
+        "featured": false,
+        "trending": true,
+        "rating": 4.6,
+        "image": "assets/images/games/ea-fc-26.jpg",
+        "description": "Play the latest football simulation with licensed clubs, realistic gameplay and career modes.",
+        "screenshots": [
+            "assets/images/games/ea-fc-26.jpg",
+            "assets/images/games/ea-fc-26.jpg",
+            "assets/images/games/ea-fc-26.jpg"
+        ],
+        "requirements": {
+            "os": "Windows 10 (64-bit)",
+            "processor": "Intel Core i5-6600K",
+            "ram": "8 GB",
+            "storage": "100 GB"
+        }
+    },
+    {
+        "id": 7,
+        "title": "Minecraft",
+        "category": "Adventure",
+        "price": 1999,
+        "originalPrice": 2499,
+        "discount": 20,
+        "featured": true,
+        "trending": false,
+        "rating": 4.8,
+        "image": "assets/images/games/minecraft.jpg",
+        "description": "Build, explore and survive in an endless sandbox world full of creativity.",
+        "screenshots": [
+            "assets/images/games/minecraft.jpg",
+            "assets/images/games/minecraft.jpg",
+            "assets/images/games/minecraft.jpg"
+        ],
+        "requirements": {
+            "os": "Windows 10 (64-bit)",
+            "processor": "Intel Core i3-3210",
+            "ram": "4 GB",
+            "storage": "4 GB"
+        }
+    },
+    {
+        "id": 8,
+        "title": "Valorant",
+        "category": "FPS",
+        "price": 0,
+        "originalPrice": 0,
+        "discount": 0,
+        "featured": false,
+        "trending": true,
+        "rating": 4.7,
+        "image": "assets/images/games/valorant.jpg",
+        "description": "A tactical 5v5 character-based shooter that combines precise gunplay with unique agent abilities.",
+        "screenshots": [
+            "assets/images/games/valorant.jpg",
+            "assets/images/games/valorant.jpg",
+            "assets/images/games/valorant.jpg"
+        ],
+        "requirements": {
+            "os": "Windows 10 (64-bit)",
+            "processor": "Intel Core i3-4150",
+            "ram": "4 GB",
+            "storage": "30 GB"
+        }
+    },
+    {
+        "id": 9,
+        "title": "PUBG: Battlegrounds",
+        "category": "FPS",
+        "price": 0,
+        "originalPrice": 0,
+        "discount": 0,
+        "featured": false,
+        "trending": true,
+        "rating": 4.5,
+        "image": "assets/images/games/pubg.jpg",
+        "description": "Fight to become the last player standing in one of the world's most popular battle royale games.",
+        "screenshots": [
+            "assets/images/games/pubg.jpg",
+            "assets/images/games/pubg.jpg",
+            "assets/images/games/pubg.jpg"
+        ],
+        "requirements": {
+            "os": "Windows 10 (64-bit)",
+            "processor": "Intel Core i5-4430",
+            "ram": "8 GB",
+            "storage": "50 GB"
+        }
+    },
+    {
+        "id": 10,
+        "title": "Assassin's Creed Shadows",
+        "category": "Action",
+        "price": 4499,
+        "originalPrice": 5999,
+        "discount": 25,
+        "featured": true,
+        "trending": true,
+        "rating": 4.8,
+        "image": "assets/images/games/ac-shadows.jpg",
+        "description": "Explore feudal Japan as a shinobi assassin in Ubisoft's latest Assassin's Creed adventure.",
+        "screenshots": [
+            "assets/images/games/ac-shadows.jpg",
+            "assets/images/games/ac-shadows.jpg",
+            "assets/images/games/ac-shadows.jpg"
+        ],
+        "requirements": {
+            "os": "Windows 11 (64-bit)",
+            "processor": "Intel Core i7-8700K",
+            "ram": "16 GB",
+            "storage": "120 GB"
+        }
+    },
+    {
+        "id": 11,
+        "title": "Red Dead Redemption 2",
+        "category": "Adventure",
+        "price": 1799,
+        "originalPrice": 2999,
+        "discount": 40,
+        "featured": true,
+        "trending": false,
+        "rating": 4.9,
+        "image": "assets/images/games/rdr2.jpg",
+        "description": "Experience an epic tale of life in America's unforgiving heartland as outlaw Arthur Morgan.",
+        "screenshots": [
+            "assets/images/games/rdr2.jpg",
+            "assets/images/games/rdr2.jpg",
+            "assets/images/games/rdr2.jpg"
+        ],
+        "requirements": {
+            "os": "Windows 10 (64-bit)",
+            "processor": "Intel Core i5-2500K",
+            "ram": "8 GB",
+            "storage": "150 GB"
+        }
+    },
+    {
+        "id": 12,
+        "title": "Call of Duty: Black Ops 7",
+        "category": "FPS",
+        "price": 4999,
+        "originalPrice": 6499,
+        "discount": 23,
+        "featured": true,
+        "trending": true,
+        "rating": 4.8,
+        "image": "assets/images/games/cod-black-ops-7.jpg",
+        "description": "Enter the next generation of military combat with cinematic missions and intense multiplayer.",
+        "screenshots": [
+            "assets/images/games/cod-black-ops-7.jpg",
+            "assets/images/games/cod-black-ops-7.jpg",
+            "assets/images/games/cod-black-ops-7.jpg"
+        ],
+        "requirements": {
+            "os": "Windows 11 (64-bit)",
+            "processor": "Intel Core i7-9700K",
+            "ram": "16 GB",
+            "storage": "150 GB"
+        }
+    }
+]

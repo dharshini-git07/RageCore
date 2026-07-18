@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RageCore | Game Catalog</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Team CSS -->
+    <link rel="stylesheet" href="css/variable.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/games.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="header">
+
+        <nav class="navbar">
+
+            <div class="container nav-container">
+
+                <!-- Logo -->
+
+                <a href="index.html" class="logo">
+                    <i class="fa-solid fa-gamepad"></i>
+                    <span>RageCore</span>
+                </a>
+
+                <!-- Desktop Navigation -->
+
+                <ul class="nav-links">
+
+                    <li><a href="index.html">Home</a></li>
+
+                    <li><a href="games.html" class="active">Games</a></li>
+
+                    <li><a href="#">Categories</a></li>
+
+                    <li><a href="#">Deals</a></li>
+
+                    <li><a href="contact.html">Contact</a></li>
+
+                </ul>
+
+                <!-- Search -->
+
+                <div class="search-box">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input type="text" id="searchInput" placeholder="Search games...">
+
+                </div>
+
+                <!-- Right Icons -->
+
+                <div class="nav-actions">
+
+                    <a href="wishlist.html" title="Wishlist">
+                        <i class="fa-regular fa-heart"></i>
+                    </a>
+
+                    <a href="cart.html" title="Cart">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </a>
+
+                    <a href="login.html" title="Profile">
+                        <i class="fa-regular fa-user"></i>
+                    </a>
+
+                    <button class="menu-btn">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+    <!-- ================= MOBILE SIDEBAR ================= -->
+
+    <aside class="mobile-sidebar">
+
+        <div class="sidebar-header">
+
+            <h2>
+                <span>Rage</span>Core
+            </h2>
+
+            <button class="close-btn">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+        </div>
+
+        <ul class="mobile-links">
+
+            <li>
+                <a href="index.html">
+                    <i class="fa-solid fa-house"></i>
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="games.html">
+                    <i class="fa-solid fa-gamepad"></i>
+                    Games
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-layer-group"></i>
+                    Categories
+                </a>
+            </li>
+
+            <li>
+                <a href="wishlist.html">
+                    <i class="fa-regular fa-heart"></i>
+                    Wishlist
+                </a>
+            </li>
+
+            <li>
+                <a href="cart.html">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    Cart
+                </a>
+            </li>
+
+            <li>
+                <a href="contact.html">
+                    <i class="fa-solid fa-envelope"></i>
+                    Contact
+                </a>
+            </li>
+
+            <li>
+                <a href="login.html">
+                    <i class="fa-regular fa-user"></i>
+                    Login
+                </a>
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <div class="sidebar-overlay"></div>
+
+    <!-- ================= HERO ================= -->
+
+    <section class="games-hero">
+
+        <div class="container">
+
+            <h1 class="section-title">
+                🎮 Game Catalog
+            </h1>
+
+            <p class="section-subtitle">
+                Discover Your Next Favorite Game
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- ================= FILTERS ================= -->
+
+    <section class="games-filters">
+
+        <div class="container">
+
+            <div class="filters">
+
+                <div class="filter">
+
+                    <select id="categoryFilter">
+
+                        <option value="all">Category</option>
+
+                        <option value="Action">Action</option>
+
+                        <option value="Adventure">Adventure</option>
+
+                        <option value="RPG">RPG</option>
+
+                        <option value="Racing">Racing</option>
+
+                        <option value="Sports">Sports</option>
+
+                        <option value="FPS">FPS</option>
+
+                    </select>
+
+                </div>
+
+                <div class="filter">
+
+                    <select id="priceFilter">
+
+                        <option value="all">Price</option>
+
+                        <option value="free">Free</option>
+
+                        <option value="2000">Below ₹2000</option>
+
+                        <option value="3000">Below ₹3000</option>
+
+                        <option value="5000">Above ₹3000</option>
+
+                    </select>
+
+                </div>
+
+                <div class="filter">
+
+                    <select id="sortFilter">
+
+                        <option value="default">Sort</option>
+
+                        <option value="priceLow">Price : Low → High</option>
+
+                        <option value="priceHigh">Price : High → Low</option>
+
+                        <option value="ratingHigh">Rating</option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+    <!-- ================= GAME CATALOG ================= -->
+
+    <section class="games-catalog">
+
+        <div class="container">
+
+            <h3 id="gameCount">
+                Showing 0 Games
+            </h3>
+
+            <div id="gamesContainer" class="games-grid">
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <div class="container footer-container">
+
+            <!-- About -->
+
+            <div class="footer-about">
+
+                <a href="index.html" class="footer-logo">
+
+                    <i class="fa-solid fa-gamepad"></i>
+
+                    <span>Rage</span>Core
+
+                </a>
+
+                <p>
+                    Discover premium PC games, exclusive deals, and an immersive gaming experience with RageCore.
+                </p>
+
+                <div class="social-links">
+
+                    <a href="#">
+                        <i class="fa-brands fa-discord"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- Quick Links -->
+
+            <div class="footer-links">
+
+                <h3>Quick Links</h3>
+
+                <ul>
+
+                    <li><a href="index.html">Home</a></li>
+
+                    <li><a href="games.html">Games</a></li>
+
+                    <li><a href="wishlist.html">Wishlist</a></li>
+
+                    <li><a href="cart.html">Cart</a></li>
+
+                    <li><a href="contact.html">Contact</a></li>
+
+                </ul>
+
+            </div>
+
+            <!-- Categories -->
+
+            <div class="footer-links">
+
+                <h3>Categories</h3>
+
+                <ul>
+
+                    <li><a href="games.html">Action</a></li>
+
+                    <li><a href="games.html">Adventure</a></li>
+
+                    <li><a href="games.html">RPG</a></li>
+
+                    <li><a href="games.html">Racing</a></li>
+
+                    <li><a href="games.html">Sports</a></li>
+
+                    <li><a href="games.html">FPS</a></li>
+
+                </ul>
+
+            </div>
+
+            <!-- Newsletter -->
+
+            <div class="footer-newsletter">
+
+                <h3>Newsletter</h3>
+
+                <p>
+                    Subscribe to receive the latest game releases and exclusive offers.
+                </p>
+
+                <form>
+
+                    <div class="newsletter-box">
+
+                        <input type="email" placeholder="Enter your email">
+
+                        <button type="submit">
+
+                            <i class="fa-solid fa-paper-plane"></i>
+
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+        <hr>
+        <div class="container footer-bottom">
+
+            <p>
+                &copy; 2026 RageCore. All Rights Reserved.
+            </p>
+
+            <p>
+                Designed by Team E ❤️
+            </p>
+
+        </div>
+
+    </footer>
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <!-- Common Navbar -->
+
+    <script src="js/navbar.js"></script>
+
+    <!-- Game Data -->
+
+    <script src="js/games-data.js"></script>
+
+    <!-- Game Catalog -->
+
+    <script src="js/games.js"></script>
+
+</body>
+
+</html>
