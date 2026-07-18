@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="css/variable.css">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/games.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/slider.css">
    
@@ -56,13 +57,19 @@
 
                     <li><a href="mini-games.html">Mini Games</a></li>
 
+                    <li class="desktop-search">
+                        <div class="search-box">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input type="text" placeholder="Search games...">
+                        </div>
+                    </li>
+
                     <li><a href="contact.html">Contact</a></li>
 
                 </ul>
 
                 <!-- Search -->
-
-                <div class="search-box">
+                <div class="search-box mobile-search">
 
                     <i class="fa-solid fa-magnifying-glass"></i>
 
@@ -233,7 +240,7 @@
                             Race through breathtaking landscapes in the world's greatest open-world driving adventure.
                         </p>
                         <div class="hero-buttons">
-                            <a href="game-details.html" class="btn btn-primary">
+                            <a href="forza.html" class="btn btn-primary">
                                 Try Now
                             </a>
                             <a href="forza.html" class="btn btn-secondary">
@@ -293,7 +300,7 @@
                             city of Los Santos.
                         </p>
                         <div class="hero-buttons">
-                            <a href="game-details.html" class="btn btn-primary">
+                            <a href="gta.html" class="btn btn-primary">
                                 Try Now
                             </a>
 
@@ -324,7 +331,7 @@
                         </p>
 
                         <div class="hero-buttons">
-                            <a href="game-details.html" class="btn btn-primary">
+                            <a href="wukong.html" class="btn btn-primary">
                                 Try Now
                             </a>
 
@@ -357,7 +364,7 @@
                         </p>
 
                         <div class="hero-buttons">
-                            <a href="game-details.html" class="btn btn-primary">
+                            <a href="cyber.html" class="btn btn-primary">
                                 Try Now
                             </a>
                             <a href="cyber.html" class="btn btn-secondary">
@@ -431,8 +438,17 @@
         </div>
     </section>
 
-    <!--FEATURED GAMES-->
-    <div id="featuredGames"></div>
+        <!--FEATURED GAMES-->
+    <section class="games-catalog">
+        <div class="container">
+            <h2 class="section-title">Featured <span>Games</span></h2>
+            <p class="section-subtitle">Hand-picked titles from our catalog</p>
+            <div id="featuredGames" class="games-grid"></div>
+            <div class="view-all-container">
+                <a href="games.html" class="btn btn-secondary">View All Games</a>
+            </div>
+        </div>
+    </section>
 
     <!-- SPECIAL OFFER BANNER SECTION -->
     <section class="special-offer">
@@ -468,8 +484,17 @@
         </div>
     </section>
 
-    <!--Trending GAMES-->
-    <div id="trendingGames"></div>
+        <!--Trending GAMES-->
+    <section class="games-catalog">
+        <div class="container">
+            <h2 class="section-title">Trending <span>Games</span></h2>
+            <p class="section-subtitle">What everyone is playing right now</p>
+            <div id="trendingGames" class="games-grid"></div>
+            <div class="view-all-container">
+                <a href="games.html" class="btn btn-secondary">View All Games</a>
+            </div>
+        </div>
+    </section>
 
 
     <!-- FOOTER-->                                                                                                  
@@ -602,6 +627,7 @@
 
 
     <!--JAVASCRIPT -->
+    <script src="js/games-data.js"></script>
     <script src="js/home.js"></script>
     <script src="js/slider.js"></script>
     <script src="Javascript/Dakshith.js"></script>

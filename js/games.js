@@ -292,3 +292,31 @@ function initializeGames() {
 // ==========================================
 
 loadGames();
+
+// Mobile Navbar Menu Toggler
+document.addEventListener("DOMContentLoaded", () => {
+    const menuBtn = document.querySelector(".menu-btn");
+    const closeBtn = document.querySelector(".close-btn");
+    const mobileSidebar = document.querySelector(".mobile-sidebar");
+    const overlay = document.querySelector(".sidebar-overlay");
+    
+    function toggleSidebar(open) {
+        if (mobileSidebar) {
+            mobileSidebar.classList.toggle("active", open);
+        }
+        if (overlay) {
+            overlay.classList.toggle("active", open);
+        }
+        document.body.style.overflow = open ? "hidden" : "";
+    }
+    
+    if (menuBtn) {
+        menuBtn.addEventListener("click", () => toggleSidebar(true));
+    }
+    if (closeBtn) {
+        closeBtn.addEventListener("click", () => toggleSidebar(false));
+    }
+    if (overlay) {
+        overlay.addEventListener("click", () => toggleSidebar(false));
+    }
+});
