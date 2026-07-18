@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Black Myth: Wukong — Game Details | GameVault</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="details.css">
+<link rel="stylesheet" href="Detailsanimations.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- ============ COMMON NAVBAR (placeholder — replaced by Dharshini's navbar.html include) ============ -->
+<header class="site-navbar" id="navbar-placeholder">
+  <div class="nav-inner">
+    <!--NAVBAR -->
+    <header class="header">
+
+        <nav class="navbar">
+
+            <div class="container nav-container">
+
+                <!-- Logo -->
+
+                <a href="index.html" class="logo">
+                    <i class="fa-solid fa-gamepad"></i>
+                    <span>RageCore</span>
+                </a>
+
+                <!-- Desktop Navigation -->
+
+                <ul class="nav-links">
+
+                    <li><a href="index.html" class="active">Home</a></li>
+
+                    <li><a href="games.html">Games</a></li>
+
+                    <li><a href="#">Categories</a></li>
+
+                    <li><a href="#">Deals</a></li>
+
+                    <li><a href="contact.html">Contact</a></li>
+
+                </ul>
+
+                <!-- Search -->
+
+                <div class="search-box">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input type="text" placeholder="Search games...">
+
+                </div>
+
+                <!-- Right Icons -->
+
+                <div class="nav-actions">
+
+                    <a href="wishlist.html" title="Wishlist">
+
+                        <i class="fa-regular fa-heart"></i>
+
+                    </a>
+
+                    <a href="cart.html" title="Cart">
+
+                        <i class="fa-solid fa-cart-shopping"></i>
+
+                    </a>
+
+                    <a href="login.html" title="Profile">
+
+                        <i class="fa-regular fa-user"></i>
+
+                    </a>
+
+                    <button class="menu-btn">
+
+                        <i class="fa-solid fa-bars"></i>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+    <!-- MOBILE SIDEBAR-->
+
+    <aside class="mobile-sidebar">
+
+        <div class="sidebar-header">
+
+            <h2>
+
+                <span>Rage</span>Core
+
+            </h2>
+
+            <button class="close-btn">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+        <ul class="mobile-links">
+
+            <li>
+
+                <a href="index.html">
+
+                    <i class="fa-solid fa-house"></i>
+
+                    Home
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="games.html">
+
+                    <i class="fa-solid fa-gamepad"></i>
+
+                    Games
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="#">
+
+                    <i class="fa-solid fa-layer-group"></i>
+
+                    Categories
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="wishlist.html">
+
+                    <i class="fa-regular fa-heart"></i>
+
+                    Wishlist
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="cart.html">
+
+                    <i class="fa-solid fa-cart-shopping"></i>
+
+                    Cart
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="contact.html">
+
+                    <i class="fa-solid fa-envelope"></i>
+
+                    Contact
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="login.html">
+
+                    <i class="fa-regular fa-user"></i>
+
+                    Login
+
+                </a>
+
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <div class="sidebar-overlay"></div>
+  </div>
+</header>
+
+<main class="details-main">
+
+  <!-- ============ TOP SECTION: GALLERY + INFO ============ -->
+  <section class="detail-top">
+
+    <!-- Gallery -->
+    <div class="gallery">
+      <div class="gallery-main">
+        <img id="galleryMainImg" src="gamedetailsimg/wu/w1.jpeg" alt="Black Myth: Wukong — screenshot 1">
+        <span class="gallery-badge">Screenshot 1 / 5</span>
+      </div>
+      <div class="gallery-thumbs" id="galleryThumbs">
+        <button class="thumb active" data-full="gamedetailsimg/wu/w2.jpeg">
+          <img src="gamedetailsimg/wu/w2.jpeg" alt="Thumbnail 1">
+        </button>
+        <button class="thumb" data-full="gamedetailsimg/wu/w3.jpeg">
+          <img src="gamedetailsimg/wu/w3.jpeg" alt="Thumbnail 2">
+        </button>
+        <button class="thumb" data-full="gamedetailsimg/wu/w4.jpeg">
+          <img src="gamedetailsimg/wu/w4.jpeg" alt="Thumbnail 3">
+        </button>
+        <button class="thumb" data-full="gamedetailsimg/wu/w5.jpeg">
+          <img src="gamedetailsimg/wu/w5.jpeg" alt="Thumbnail 4">
+        </button>
+        <button class="thumb" data-full="gamedetailsimg/wu/w6.jpeg">
+          <img src="gamedetailsimg/wu/w6.jpeg" alt="Thumbnail 5">
+        </button>
+      </div>
+    </div>
+
+    <!-- Info -->
+    <div class="detail-info">
+      <p class="detail-genre">Action RPG &middot; Souls-like &middot; Mythology</p>
+      <h1 class="detail-title">Black Myth: Wukong</h1>
+
+      <div class="detail-rating-row">
+        <div class="rating-ring" id="ratingRing" data-score="4.6">
+          <svg viewBox="0 0 64 64">
+            <circle class="ring-track" cx="32" cy="32" r="27"></circle>
+            <circle class="ring-fill" id="ringFill" cx="32" cy="32" r="27"></circle>
+          </svg>
+          <span class="ring-score">4.6</span>
+        </div>
+        <div class="rating-meta">
+          <span class="stars">★★★★★</span>
+          <span class="review-count">13,480 reviews</span>
+        </div>
+      </div>
+
+      <p class="detail-price">
+      
+        <span class="price-current">₹3,999</span>
+<span class="price-old">₹4,999</span>
+<span class="price-off">20% OFF</span>
+      </p>
+
+      <div class="detail-actions">
+        <button class="btn btn-primary" id="addToCartBtn">Add to Cart</button>
+        <button class="btn btn-icon" id="wishlistBtn" aria-pressed="false" aria-label="Add to wishlist">♡</button>
+      </div>
+
+      <p class="detail-blurb">
+        An action RPG rooted in Chinese mythology, following the Destined One on a journey inspired by Journey to the West. Master a fluid combat system built around transformation, staff techniques, and spectacular boss fights.
+      </p>
+
+      <div class="detail-tags">
+        <span>Single Player</span>
+        <span>Controller Support</span>
+        <span>Cloud Save</span>
+      </div>
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="detail-sidebar">
+      <div class="info-card">
+        <h3>Game Info</h3>
+        <dl>
+          <div><dt>Developer</dt><dd>Game Science</dd></div>
+          <div><dt>Publisher</dt><dd>Game Science</dd></div>
+          <div><dt>Release Date</dt><dd>20 Aug 2024</dd></div>
+          <div><dt>Platform</dt><dd>Windows, PS5</dd></div>
+          <div><dt>Size</dt><dd>130 GB</dd></div>
+          <div><dt>Age Rating</dt><dd>16+</dd></div>
+        </dl>
+      </div>
+    </aside>
+  </section>
+
+  <!-- ============ TABS ============ -->
+  <section class="detail-tabs-section">
+    <div class="tabs-header" role="tablist">
+      <button class="tab-btn active" data-tab="description" role="tab" aria-selected="true">Description</button>
+      <button class="tab-btn" data-tab="requirements" role="tab" aria-selected="false">System Requirements</button>
+      <button class="tab-btn" data-tab="reviews" role="tab" aria-selected="false">Reviews</button>
+    </div>
+
+    <!-- Description Panel -->
+    <div class="tab-panel active" id="panel-description" role="tabpanel">
+      <h3>About This Game</h3>
+      <p>
+        Black Myth: Wukong reimagines the legend of the Monkey King through breathtaking environments, punishing boss encounters, and a combat system that rewards precise timing and creative use of transformation abilities.
+      </p>
+      <p>
+        Traverse richly detailed levels drawn from Chinese folklore, uncovering hidden lore and secrets as you push toward some of the most memorable boss fights in recent action RPGs.
+      </p>
+      <ul class="feature-list">
+        <li>Deep, transformation-based combat system</li>
+        <li>Environments and bosses drawn from Chinese mythology</li>
+        <li>Richly detailed, cinematic level design</li>
+        <li>Challenging boss encounters with varied strategies</li>
+      </ul>
+    </div>
+
+    <!-- System Requirements Panel — signature terminal spec sheet -->
+    <div class="tab-panel" id="panel-requirements" role="tabpanel">
+      <div class="spec-terminal">
+        <div class="spec-terminal-head">
+          <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+          <span class="spec-terminal-title">system_requirements.log</span>
+        </div>
+
+        <div class="spec-toggle" role="tablist" aria-label="Requirement tier">
+          <button class="spec-toggle-btn active" data-tier="min">MINIMUM</button>
+          <button class="spec-toggle-btn" data-tier="rec">RECOMMENDED</button>
+        </div>
+
+        <table class="spec-table" id="specTable">
+          <tbody>
+            <tr><th>OS</th><td class="spec-min">Windows 10 64-bit</td><td class="spec-rec hidden">Windows 10/11 64-bit</td></tr>
+            <tr><th>CPU</th><td class="spec-min">Intel i5-8400 / AMD Ryzen 5 1600</td><td class="spec-rec hidden">Intel i7-9700 / AMD Ryzen 5 5500</td></tr>
+            <tr><th>RAM</th><td class="spec-min">16 GB</td><td class="spec-rec hidden">16 GB</td></tr>
+            <tr><th>GPU</th><td class="spec-min">GTX 1060 6GB / RX 5500 XT</td><td class="spec-rec hidden">RTX 2060 Super / RX 5700 XT</td></tr>
+            <tr><th>STORAGE</th><td class="spec-min">130 GB</td><td class="spec-rec hidden">130 GB SSD</td></tr>
+            <tr><th>DIRECTX</th><td class="spec-min">Version 12</td><td class="spec-rec hidden">Version 12</td></tr>
+          </tbody>
+        </table>
+        <p class="spec-terminal-footer">&gt; run --check-compatibility to verify your rig_</p>
+      </div>
+    </div>
+
+    <!-- Reviews Panel -->
+    <div class="tab-panel" id="panel-reviews" role="tabpanel">
+      <div class="review-summary">
+        <div class="review-score-big">4.6<span>/5</span></div>
+        <div class="review-bars">
+          <div class="bar-row"><span>5★</span><div class="bar"><div style="width:72%"></div></div><span>72%</span></div>
+          <div class="bar-row"><span>4★</span><div class="bar"><div style="width:18%"></div></div><span>18%</span></div>
+          <div class="bar-row"><span>3★</span><div class="bar"><div style="width:6%"></div></div><span>6%</span></div>
+          <div class="bar-row"><span>2★</span><div class="bar"><div style="width:2%"></div></div><span>2%</span></div>
+          <div class="bar-row"><span>1★</span><div class="bar"><div style="width:2%"></div></div><span>2%</span></div>
+        </div>
+      </div>
+
+      <div class="review-list" id="reviewList">
+        <div class="review-item">
+          <div class="review-item-head">
+            <span class="review-author">wukong_fan99</span>
+            <span class="review-stars">★★★★★</span>
+          </div>
+          <p>Visually one of the best-looking games out right now, and the boss fights genuinely make you rethink your build mid-fight.</p>
+        </div>
+        <div class="review-item">
+          <div class="review-item-head">
+            <span class="review-author">samyuktha_p</span>
+            <span class="review-stars">★★★★☆</span>
+          </div>
+          <p>Combat feels great once it clicks, though the difficulty spikes can be brutal for players newer to the genre.</p>
+        </div>
+      </div>
+
+      <form class="review-form" id="reviewForm">
+        <h4>Write a Review</h4>
+        <div class="review-form-stars" id="reviewFormStars" data-value="0">
+          <span data-star="1">★</span><span data-star="2">★</span><span data-star="3">★</span><span data-star="4">★</span><span data-star="5">★</span>
+        </div>
+        <textarea placeholder="Share what you thought..." required></textarea>
+        <button type="submit" class="btn btn-primary">Submit Review</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ RECOMMENDATION CAROUSEL ============ -->
+  <section class="recommend-section">
+    <h2>You May Also Like</h2>
+      <div id="recommendationTrack" class="carousel-track">
+        <a href="gta.html" class="rec-card">
+          <img src="gamedetailsimg/gta/gta1.jpeg" alt="GTA V cover art">
+          <div class="rec-card-body">
+            <p class="rec-card-title">GTA V</p>
+            <p class="rec-card-sub"><span>Action</span><span>★ 4.7</span></p>
+            <p class="rec-card-price">$29.99</p>
+          </div>
+        </a>
+        <a href="ec.html" class="rec-card">
+          <img src="gamedetailsimg/ec/ec1.jpeg" alt="EA FC 26 cover art">
+          <div class="rec-card-body">
+            <p class="rec-card-title">EA FC 26</p>
+            <p class="rec-card-sub"><span>Sports</span><span>★ 4.2</span></p>
+            <p class="rec-card-price">$69.99</p>
+          </div>
+        </a>
+        <a href="forza.html" class="rec-card">
+          <img src="gamedetailsimg/fcar/fc1.jpeg" alt="Forza Horizon 5 cover art">
+          <div class="rec-card-body">
+            <p class="rec-card-title">Forza Horizon 5</p>
+            <p class="rec-card-sub"><span>Racing</span><span>★ 4.7</span></p>
+            <p class="rec-card-price">$49.99</p>
+          </div>
+        </a>
+        <a href="minecraft.html" class="rec-card">
+          <img src="gamedetailsimg/mc/mc1.jpeg" alt="Minecraft cover art">
+          <div class="rec-card-body">
+            <p class="rec-card-title">Minecraft</p>
+            <p class="rec-card-sub"><span>Sandbox</span><span>★ 4.9</span></p>
+            <p class="rec-card-price">$26.95</p>
+          </div>
+        </a>
+        <a href="valorant.html" class="rec-card">
+          <img src="gamedetailsimg/va/va1.jpeg" alt="Valorant cover art">
+          <div class="rec-card-body">
+            <p class="rec-card-title">Valorant</p>
+            <p class="rec-card-sub"><span>Tactical Shooter</span><span>★ 4.5</span></p>
+            <p class="rec-card-price">Free to Play</p>
+          </div>
+        </a>
+        <a href="pubg.html" class="rec-card">
+          <img src="gamedetailsimg/pubg/p1.jpeg" alt="PUBG: Battlegrounds cover art">
+          <div class="rec-card-body">
+            <p class="rec-card-title">PUBG: Battlegrounds</p>
+            <p class="rec-card-sub"><span>Battle Royale</span><span>★ 4.1</span></p>
+            <p class="rec-card-price">Free to Play</p>
+          </div>
+        </a>
+
+        <a href="wukong.html" class="rec-card">
+          <img src="gamedetailsimg/wu/w1.jpeg" alt="Black Myth: Wukong cover art">
+          <div class="rec-card-body">
+            <p class="rec-card-title">Black Myth: Wukong</p>
+            <p class="rec-card-sub"><span>Action RPG</span><span>★ 4.6</span></p>
+            <p class="rec-card-price">$59.99</p>
+          </div>
+        </a>
+        <a href="as.html" class="rec-card">
+          <img src="gamedetailsimg/as/as1.jpeg" alt="Assassin's Creed Shadows cover art">
+          <div class="rec-card-body">
+            <p class="rec-card-title">Assassin's Creed Shadows</p>
+            <p class="rec-card-sub"><span>Action Adventure</span><span>★ 4.3</span></p>
+            <p class="rec-card-price">$69.99</p>
+          </div>
+        </a>
+        <a href="rdr2.html" class="rec-card">
+          <img src="gamedetailsimg/rdr/r1.jpeg" alt="Red Dead Redemption 2 cover art">
+          <div class="rec-card-body">
+            <p class="rec-card-title">Red Dead Redemption 2</p>
+            <p class="rec-card-sub"><span>Action Adventure</span><span>★ 4.9</span></p>
+            <p class="rec-card-price">$39.99</p>
+          </div>
+        </a>
+        <a href="cod.html" class="rec-card">
+          <img src="gamedetailsimg/cod/c1.jpeg" alt="Call of Duty: Black Ops 7 cover art">
+          <div class="rec-card-body">
+            <p class="rec-card-title">Call of Duty: Black Ops 7</p>
+            <p class="rec-card-sub"><span>Shooter</span><span>★ 4.0</span></p>
+            <p class="rec-card-price">$69.99</p>
+          </div>
+        </a>
+        <a href="cyber.html" class="rec-card">
+          <img src="gamedetailsimg/cy/cy1.jpeg" alt="Cyberpunk 2077 cover art">
+          <div class="rec-card-body">
+            <p class="rec-card-title">Cyberpunk 2077</p>
+            <p class="rec-card-sub"><span>Action RPG</span><span>★ 4.5</span></p>
+            <p class="rec-card-price">$29.99</p>
+          </div>
+        </a>
+      </div>
+  </section>
+
+</main>
+
+<section class="upcoming-section">
+  <div class="upcoming-header">
+    <h2>Upcoming Games</h2>
+    <p>Get ready — these are launching soon</p>
+  </div>
+
+  <div class="upcoming-track" id="upcomingTrack">
+
+    <div class="upcoming-card">
+      <div class="upcoming-img">
+        <img src="gamedetailsimg/gtavi.jpeg" alt="GTA VI cover art">
+        <span class="upcoming-badge">Coming Soon</span>
+      </div>
+      <div class="upcoming-body">
+        <p class="upcoming-title">GTA VI</p>
+        <p class="upcoming-sub"><span>Action</span><span>Rockstar Games</span></p>
+        <p class="upcoming-date" data-release="2027-05-26T00:00:00">Releases 26 May 2027</p>
+        <div class="upcoming-countdown" data-target="2027-05-26T00:00:00">
+          <span class="cd-block"><b class="cd-days">--</b><small>Days</small></span>
+          <span class="cd-block"><b class="cd-hours">--</b><small>Hrs</small></span>
+          <span class="cd-block"><b class="cd-mins">--</b><small>Min</small></span>
+        </div>
+        <button class="btn btn-outline notify-btn">Notify Me</button>
+      </div>
+    </div>
+
+    <div class="upcoming-card">
+      <div class="upcoming-img">
+        <img src="gamedetailsimg/marvel.jpeg" alt="Marvel's Wolverine cover art">
+        <span class="upcoming-badge">Coming Soon</span>
+      </div>
+      <div class="upcoming-body">
+        <p class="upcoming-title">Marvel's Wolverine</p>
+        <p class="upcoming-sub"><span>Action Adventure</span><span>Insomniac Games</span></p>
+        <p class="upcoming-date" data-release="2026-12-10T00:00:00">Releases 10 Dec 2026</p>
+        <div class="upcoming-countdown" data-target="2026-12-10T00:00:00">
+          <span class="cd-block"><b class="cd-days">--</b><small>Days</small></span>
+          <span class="cd-block"><b class="cd-hours">--</b><small>Hrs</small></span>
+          <span class="cd-block"><b class="cd-mins">--</b><small>Min</small></span>
+        </div>
+        <button class="btn btn-outline notify-btn">Notify Me</button>
+      </div>
+    </div>
+
+    <div class="upcoming-card">
+      <div class="upcoming-img">
+        <img src="gamedetailsimg/Fable.jpeg" alt="Fable cover art">
+        <span class="upcoming-badge">Coming Soon</span>
+      </div>
+      <div class="upcoming-body">
+        <p class="upcoming-title">Fable</p>
+        <p class="upcoming-sub"><span>RPG</span><span>Playground Games</span></p>
+        <p class="upcoming-date" data-release="2026-10-01T00:00:00">Releases Oct 2026</p>
+        <div class="upcoming-countdown" data-target="2026-10-01T00:00:00">
+          <span class="cd-block"><b class="cd-days">--</b><small>Days</small></span>
+          <span class="cd-block"><b class="cd-hours">--</b><small>Hrs</small></span>
+          <span class="cd-block"><b class="cd-mins">--</b><small>Min</small></span>
+        </div>
+        <button class="btn btn-outline notify-btn">Notify Me</button>
+      </div>
+    </div>
+
+    <div class="upcoming-card">
+      <div class="upcoming-img">
+        <img src="gamedetailsimg/Borderlands 4.jpeg" alt="Borderlands 4 cover art">
+        <span class="upcoming-badge">Coming Soon</span>
+      </div>
+      <div class="upcoming-body">
+        <p class="upcoming-title">Borderlands 4</p>
+        <p class="upcoming-sub"><span>Looter Shooter</span><span>Gearbox</span></p>
+        <p class="upcoming-date" data-release="2026-09-12T00:00:00">Releases 12 Sep 2026</p>
+        <div class="upcoming-countdown" data-target="2026-09-12T00:00:00">
+          <span class="cd-block"><b class="cd-days">--</b><small>Days</small></span>
+          <span class="cd-block"><b class="cd-hours">--</b><small>Hrs</small></span>
+          <span class="cd-block"><b class="cd-mins">--</b><small>Min</small></span>
+        </div>
+        <button class="btn btn-outline notify-btn">Notify Me</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- FOOTER-->
+
+    <footer class="footer">
+
+        <div class="container footer-container">
+
+            <div class="footer-about">
+
+                <a href="index.html" class="footer-logo">
+
+                    <i class="fa-solid fa-gamepad"></i>
+
+                    <span>Rage</span>Core
+
+                </a>
+
+                <p>
+
+                    Discover premium PC games, exclusive deals, and an immersive gaming experience with RageCore.
+
+                </p>
+
+                <div class="social-links">
+
+                    <a href="#"><i class="fa-brands fa-discord"></i></a>
+
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+
+                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+
+                </div>
+
+            </div>
+
+            <div class="footer-links">
+
+                <h3>Quick Links</h3>
+
+                <ul>
+
+                    <li><a href="index.html">Home</a></li>
+
+                    <li><a href="games.html">Games</a></li>
+
+                    <li><a href="wishlist.html">Wishlist</a></li>
+
+                    <li><a href="cart.html">Cart</a></li>
+
+                    <li><a href="contact.html">Contact</a></li>
+
+                </ul>
+
+            </div>
+
+            <div class="footer-links">
+
+                <h3>Categories</h3>
+
+                <ul>
+
+                    <li><a href="games.html">Action</a></li>
+
+                    <li><a href="games.html">Racing</a></li>
+
+                    <li><a href="games.html">Sports</a></li>
+
+                    <li><a href="games.html">RPG</a></li>
+
+                    <li><a href="games.html">Adventure</a></li>
+
+                </ul>
+
+            </div>
+
+            <div class="footer-newsletter">
+
+                <h3>Newsletter</h3>
+
+                <p>
+
+                    Subscribe to receive the latest game releases and exclusive offers.
+
+                </p>
+
+                <form>
+
+                    <div class="newsletter-box">
+
+                        <input type="email" placeholder="Enter your email">
+
+                        <button type="submit">
+
+                            <i class="fa-solid fa-paper-plane"></i>
+
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="container footer-bottom">
+
+            <p>
+
+                &copy;2026 RageCore. All Rights Reserved.
+
+            </p>
+
+            <p>
+
+                Designed by Team E ❤️
+
+            </p>
+
+        </div>
+
+    </footer>
+
+<script src="games-data.js"></script>
+<script src="details.js"></script>
+<script src="recommendation.js"></script>
+<script src="Detailsanimationhooks.js"></script>
+</body>
+</html>
