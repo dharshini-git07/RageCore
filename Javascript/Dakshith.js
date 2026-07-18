@@ -1,9 +1,4 @@
-/* =====================================================
-   GAME STORE - MAIN SCRIPT (Dakshith.js)
-   Team E - Week 6 Project
-   Contains: Spinner, Register (with localStorage),
-   Login (with localStorage auth), Contact form, FAQ accordion
-   ===================================================== */
+
 
 
 /* ============ SPINNER FOR ALL MODULES ============ */
@@ -68,7 +63,8 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     // 1. Inject Error Message Spans dynamically
-    const inputs = [firstName, lastName, email, confirmPassword];
+    // lastName is optional, so it's excluded from required-field validation
+    const inputs = [firstName, email, confirmPassword];
     inputs.forEach(input => {
         const errorSpan = document.createElement('span');
         errorSpan.className = 'error-msg';
@@ -127,15 +123,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 4. Live Validation Events
 
-    // Names
-    [firstName, lastName].forEach(input => {
-        input.addEventListener('input', () => {
-            if (input.value.trim().length < 3) {
-                setError(input, 'Must be at least 3 characters');
-            } else {
-                setSuccess(input);
-            }
-        });
+    // First Name (required)
+    firstName.addEventListener('input', () => {
+        if (firstName.value.trim().length < 3) {
+            setError(firstName, 'Must be at least 3 characters');
+        } else {
+            setSuccess(firstName);
+        }
+    });
+
+    // Last Name (optional — no validation, just clear any leftover error styling)
+    lastName.addEventListener('input', () => {
+        lastName.classList.remove('invalid');
+        lastName.classList.remove('valid');
     });
 
     // Email
@@ -211,11 +211,7 @@ document.addEventListener("DOMContentLoaded", () => {
             isValid = false;
         }
 
-        // Check Last Name
-        if (lastName.value.trim().length < 3) {
-            setError(lastName, 'Last Name is required');
-            isValid = false;
-        }
+        // Last Name is optional — no check needed here
 
         // Check Email
         if (!emailPattern.test(email.value.trim())) {
@@ -298,6 +294,7 @@ document.addEventListener("DOMContentLoaded", () => {
             btn.innerHTML = 'Register';
             btn.style.opacity = '1';
             inputs.forEach(input => input.classList.remove('valid'));
+            lastName.classList.remove('valid', 'invalid');
             password.classList.remove('valid');
             passTracker.classList.remove('active');
             document.querySelectorAll('.req-item').forEach(item => item.classList.remove('met'));
@@ -890,7 +887,7 @@ document.querySelectorAll('.field-edit').forEach(function (btn) {
 /* ===== Change Password button (simple inline flow) ===== */
 (function () {
   var changePwBtn = document.getElementById('changePwBtn');
-  if (!changePwBtn) return;
+  if (!changePwBtn) return; // not on profile page, skip safely
 
   changePwBtn.addEventListener('click', function () {
     var newPw = prompt('Enter your new password (min 6 characters):');
@@ -922,7 +919,7 @@ document.querySelectorAll('.field-edit').forEach(function (btn) {
 /* ===== Deactivate Account button ===== */
 (function () {
   var deactivateBtn = document.querySelector('.danger-btn');
-  if (!deactivateBtn) return; 
+  if (!deactivateBtn) return; // not on profile page, skip safely
 
   deactivateBtn.addEventListener('click', function () {
     var confirmed = confirm('Are you sure you want to deactivate your account? This cannot be undone.');
