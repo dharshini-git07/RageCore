@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RageCore - Loading</title>
+<link rel="stylesheet" href="Dakshith.css">
+<style>
+
+  body {
+    min-height: 100vh;
+    margin: 0;
+    font-family: var(--body-font);
+    color: var(--text-primary);
+  }
+
+  /* Standalone-preview background (only shows when this file is
+     opened directly, on its own, in a browser) */
+  body {
+    background-color: var(--bg-color);
+    background-image:
+        radial-gradient(circle at 15% 15%, rgba(139, 92, 246, .18), transparent 45%),
+        radial-gradient(circle at 85% 85%, rgba(236, 72, 153, .16), transparent 45%);
+  }
+
+  /* #loader: a full-screen overlay so this same markup can sit on
+     top of ANY page it gets included into. */
+  #loader {
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-loader);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-color);
+    background-image:
+        radial-gradient(circle at 15% 15%, rgba(139, 92, 246, .18), transparent 45%),
+        radial-gradient(circle at 85% 85%, rgba(236, 72, 153, .16), transparent 45%);
+    transition: opacity .5s ease, visibility .5s ease;
+  }
+
+  #loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .loader-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xl);
+  }
+
+  /* Brand mark, same gradient-text signature as the login card */
+  .brand {
+    font-family: var(--heading-font);
+    font-size: var(--fs-2xl);
+    font-weight: var(--fw-bold);
+    letter-spacing: 4px;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Ring spinner: two arcs rotating opposite directions,
+     like a controller stick being spun */
+  .ring {
+    position: relative;
+    width: 96px;
+    height: 96px;
+  }
+
+  .ring::before,
+  .ring::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius-circle);
+    border: 4px solid transparent;
+  }
+
+  .ring::before {
+    border-top-color: var(--primary-color);
+    border-right-color: var(--primary-color);
+    animation: spin 1s linear infinite;
+  }
+
+  .ring::after {
+    inset: 14px;
+    border-bottom-color: var(--secondary-color);
+    border-left-color: var(--secondary-color);
+    animation: spin-reverse .8s linear infinite;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes spin-reverse {
+    to { transform: rotate(-360deg); }
+  }
+
+  /* Progress bar, same "health bar" motif used on the login card */
+  .bar-track {
+    width: 260px;
+    height: 8px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .bar-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--primary-gradient);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-primary);
+    animation: fill 2.4s ease-in-out infinite;
+  }
+
+  @keyframes fill {
+    0%   { width: 0%; }
+    60%  { width: 85%; }
+    100% { width: 100%; }
+  }
+
+  .status {
+    font-size: var(--fs-sm);
+    color: var(--text-secondary);
+    letter-spacing: .5px;
+  }
+
+  .status span {
+    color: var(--accent-color);
+    font-weight: var(--fw-semibold);
+  }
+
+</style>
+</head>
+<body>
+
+  <div id="loader">
+    <div class="loader-wrap">
+      <div class="brand">RAGECORE</div>
+      <div class="ring"></div>
+      <div class="bar-track">
+        <div class="bar-fill"></div>
+      </div>
+      <p class="status">LOADING ASSETS<span id="dots">...</span></p>
+    </div>
+  </div>
+
+  <script>
+    // simple animated dots so the status line feels alive
+    const dotsEl = document.getElementById('dots');
+    let count = 0;
+    setInterval(() => {
+      count = (count + 1) % 2;
+      dotsEl.textContent = '.'.repeat(count);
+    }, 200);
+  </script>
+
+</body>
+</html>

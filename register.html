@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Store - Register</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- External CSS Linked Here -->
+    <link rel="stylesheet" href="css/Register.css">
+</head>
+<body class="register-page">
+
+   
+    
+    <div class="container register-box" id="register-container">
+        
+        <!-- ================= LEFT COLUMN: IMAGE BACKGROUND ================= -->
+        <div class="brand-panel">
+            <div class="brand-content-inner">
+                <h2><span style="color: wheat;">WELCOME TO</span> RAGECORE</h2>
+                
+                <p>Join the elite arena of next-gen developers and warriors. Create your account to build your legacy, dominate the global leaderboards, and unleash your ultimate gaming potential.</p>
+                
+                <p><strong>Eu ultrices:</strong> Vitae auctor eu augue ut. Malesuada nunc vel risus commodo viverra. Praesent elementum facilisis leo vel.</p>
+                
+                <a href="login.html" class="alt-login-btn">Have An Account</a>
+            </div>
+        </div>
+
+        <!-- ================= RIGHT COLUMN: REGISTER FORM ================= -->
+        <div class="form-panel">
+            <h2 id="form-heading">CREATE ACCOUNT</h2>
+            
+            <form class="register-form" id="registerForm" novalidate>
+                
+                <!-- First Name & Last Name Row -->
+                <div class="form-row">
+                    <div class="input-group">
+                        <label class="field-title" for="firstName">First Name</label>
+                        <div class="input-wrapper">
+                            <input type="text" id="firstName" required>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label class="field-title" for="lastName">Last Name</label>
+                        <div class="input-wrapper">
+                            <input type="text" id="lastName" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Email Field -->
+                <div class="input-group">
+                    <label class="field-title" for="email">Your Email</label>
+                    <div class="input-wrapper">
+                        <input type="email" id="email" required>
+                    </div>
+                </div>
+
+                <!-- Password & Confirm Password Row -->
+                <div class="form-row">
+                    <div class="input-group">
+                        <label class="field-title" for="password">Password</label>
+                        <div class="input-wrapper">
+                            <input type="password" id="password" required>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label class="field-title" for="confirm-password">Confirm Password</label>
+                        <div class="input-wrapper">
+                            <input type="password" id="confirm-password" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 18+ Age Consent Checkbox -->
+                <div class="input-group" style="margin-bottom: 10px;">
+                    <label class="consent-box" for="age-consent">
+                        <input type="checkbox" id="age-consent" required>
+                        <span class="custom-checkmark"></span>
+                        <span class="consent-text">I confirm that I am 18 years of age or older</span>
+                    </label>
+                </div>
+
+                <!-- Terms Checkbox -->
+                <div class="input-group">
+                    <label class="consent-box" for="terms-consent">
+                        <input type="checkbox" id="terms-consent" required>
+                        <span class="custom-checkmark"></span>
+                        <span class="consent-text">I agree to the <a href="#">Terms and Conditions</a></span>
+                    </label>
+                </div>
+
+                <button type="submit" id="register-submit-btn">Register</button>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- Script File -->
+    <script src="Javascript/Dakshith.js"></script>
+</body>
+</html>

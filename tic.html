@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RageCore - Tic Tac Toe</title>
+<link rel="stylesheet" href="variable.css">
+<style>
+
+  body {
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-lg);
+    font-family: var(--body-font);
+    color: var(--text-primary);
+    background-color: var(--bg-color);
+    background-image:
+        radial-gradient(circle at 15% 15%, rgba(139, 92, 246, .18), transparent 45%),
+        radial-gradient(circle at 85% 85%, rgba(236, 72, 153, .16), transparent 45%);
+    padding: var(--space-lg);
+  }
+
+  h2 {
+    font-family: var(--heading-font);
+    font-size: var(--fs-2xl);
+    letter-spacing: 3px;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .scoreboard {
+    display: flex;
+    gap: var(--space-lg);
+  }
+
+  .score-chip {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: var(--space-sm) var(--space-lg);
+    text-align: center;
+    min-width: 90px;
+  }
+
+  .score-chip.active {
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-primary);
+  }
+
+  .score-chip .label {
+    display: block;
+    font-size: var(--fs-xs);
+    color: var(--text-secondary);
+    letter-spacing: 1px;
+  }
+
+  .score-chip .value {
+    font-family: var(--heading-font);
+    font-size: var(--fs-xl);
+  }
+
+  .score-chip.x .value { color: var(--secondary-color); }
+  .score-chip.o .value { color: var(--accent-color); }
+  .score-chip.draw .value { color: var(--warning-color); }
+
+  .board-wrap {
+    position: relative;
+  }
+
+  .board {
+    display: grid;
+    grid-template-columns: repeat(3, 96px);
+    grid-template-rows: repeat(3, 96px);
+    gap: 6px;
+    background: var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 6px;
+    box-shadow: var(--shadow-lg), var(--shadow-primary);
+  }
+
+  .cell {
+    background: var(--card-bg);
+    border: none;
+    border-radius: var(--radius-md);
+    font-family: var(--heading-font);
+    font-size: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background var(--transition-fast);
+  }
+
+  .cell:hover:not(.filled) {
+    background: var(--bg-secondary);
+  }
+
+  .cell.x { color: var(--secondary-color); }
+  .cell.o { color: var(--accent-color); }
+
+  .cell.win {
+    box-shadow: inset 0 0 0 2px var(--success-color);
+  }
+
+  .status {
+    font-size: var(--fs-md);
+    color: var(--text-secondary);
+    text-align: center;
+    min-height: 1.4em;
+  }
+
+  .status span { font-weight: var(--fw-semibold); color: var(--text-primary); }
+
+  button.reset-btn {
+    padding: var(--space-sm) var(--space-lg);
+    border: none;
+    border-radius: var(--radius-md);
+    background: var(--primary-gradient);
+    color: var(--text-primary);
+    font-family: var(--heading-font);
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-semibold);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  }
+
+  button.reset-btn:hover {
+    box-shadow: var(--shadow-primary);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 380px) {
+    .board {
+      grid-template-columns: repeat(3, 80px);
+      grid-template-rows: repeat(3, 80px);
+    }
+    .cell { font-size: 34px; }
+  }
+
+</style>
+</head>
+<body>
+
+  <h2>TIC TAC TOE</h2>
+
+  <div class="scoreboard">
+    <div class="score-chip x active" id="chipX">
+      <span class="label">PLAYER X</span>
+      <span class="value" id="scoreX">0</span>
+    </div>
+    <div class="score-chip draw" id="chipDraw">
+      <span class="label">DRAWS</span>
+      <span class="value" id="scoreDraw">0</span>
+    </div>
+    <div class="score-chip o" id="chipO">
+      <span class="label">PLAYER O</span>
+      <span class="value" id="scoreO">0</span>
+    </div>
+  </div>
+
+  <div class="board-wrap">
+    <div class="board" id="board"></div>
+  </div>
+
+  <p class="status" id="status">Turn: <span>Player X</span></p>
+
+  <button class="reset-btn" id="resetBtn">New Round</button>
+
+  <script>
+    const boardEl = document.getElementById('board');
+    const statusEl = document.getElementById('status');
+    const resetBtn = document.getElementById('resetBtn');
+    const scoreXEl = document.getElementById('scoreX');
+    const scoreOEl = document.getElementById('scoreO');
+    const scoreDrawEl = document.getElementById('scoreDraw');
+    const chipX = document.getElementById('chipX');
+    const chipO = document.getElementById('chipO');
+
+    const WIN_LINES = [
+      [0,1,2],[3,4,5],[6,7,8],
+      [0,3,6],[1,4,7],[2,5,8],
+      [0,4,8],[2,4,6]
+    ];
+
+    let cells, current, active, tally;
+
+    function init() {
+      tally = { X: 0, O: 0, draw: 0 };
+      startRound();
+    }
+
+    function startRound() {
+      cells = Array(9).fill(null);
+      current = 'X';
+      active = true;
+      renderBoard();
+      updateStatus();
+      updateChips();
+    }
+
+    function renderBoard() {
+      boardEl.innerHTML = '';
+      cells.forEach((val, i) => {
+        const btn = document.createElement('button');
+        btn.className = 'cell' + (val ? ' filled ' + val.toLowerCase() : '');
+        btn.textContent = val || '';
+        btn.addEventListener('click', () => handleMove(i));
+        boardEl.appendChild(btn);
+      });
+    }
+
+    function handleMove(i) {
+      if (!active || cells[i]) return;
+      cells[i] = current;
+      renderBoard();
+
+      const winLine = checkWin(current);
+      if (winLine) {
+        active = false;
+        tally[current] += 1;
+        highlightWin(winLine);
+        statusEl.innerHTML = '<span>Player ' + current + ' wins!</span>';
+        updateChips();
+        return;
+      }
+
+      if (cells.every(c => c)) {
+        active = false;
+        tally.draw += 1;
+        statusEl.innerHTML = "<span>It's a draw!</span>";
+        updateChips();
+        return;
+      }
+
+      current = current === 'X' ? 'O' : 'X';
+      updateStatus();
+      updateChips();
+    }
+
+    function checkWin(player) {
+      return WIN_LINES.find(line => line.every(idx => cells[idx] === player)) || null;
+    }
+
+    function highlightWin(line) {
+      const children = boardEl.children;
+      line.forEach(idx => children[idx].classList.add('win'));
+    }
+
+    function updateStatus() {
+      statusEl.innerHTML = 'Turn: <span>Player ' + current + '</span>';
+    }
+
+    function updateChips() {
+      scoreXEl.textContent = tally.X;
+      scoreOEl.textContent = tally.O;
+      scoreDrawEl.textContent = tally.draw;
+      chipX.classList.toggle('active', current === 'X' && active);
+      chipO.classList.toggle('active', current === 'O' && active);
+    }
+
+    resetBtn.addEventListener('click', startRound);
+
+    init();
+  </script>
+
+</body>
+</html>

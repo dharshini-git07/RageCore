@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RageCore - Snake</title>
+<link rel="stylesheet" href="variable.css">
+<style>
+
+  body {
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-lg);
+    font-family: var(--body-font);
+    color: var(--text-primary);
+    background-color: var(--bg-color);
+    background-image:
+        radial-gradient(circle at 15% 15%, rgba(139, 92, 246, .18), transparent 45%),
+        radial-gradient(circle at 85% 85%, rgba(236, 72, 153, .16), transparent 45%);
+    padding: var(--space-lg);
+  }
+
+  h2 {
+    font-family: var(--heading-font);
+    font-size: var(--fs-2xl);
+    letter-spacing: 3px;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .hud {
+    display: flex;
+    gap: var(--space-xl);
+    font-size: var(--fs-sm);
+    color: var(--text-secondary);
+  }
+
+  .hud span { color: var(--accent-color); font-weight: var(--fw-semibold); }
+
+  .board-wrap {
+    position: relative;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-lg), var(--shadow-primary);
+    overflow: hidden;
+    background: var(--bg-secondary);
+  }
+
+  canvas {
+    display: block;
+  }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md);
+    background: rgba(13, 17, 23, 0.85);
+    backdrop-filter: blur(2px);
+  }
+
+  .overlay.show { display: flex; }
+
+  .overlay h3 {
+    font-family: var(--heading-font);
+    font-size: var(--fs-xl);
+    color: var(--error-color);
+    letter-spacing: 2px;
+  }
+
+  .overlay p {
+    font-size: var(--fs-sm);
+    color: var(--text-secondary);
+  }
+
+  button {
+    padding: var(--space-sm) var(--space-lg);
+    border: none;
+    border-radius: var(--radius-md);
+    background: var(--primary-gradient);
+    color: var(--text-primary);
+    font-family: var(--heading-font);
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-semibold);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  }
+
+  button:hover {
+    box-shadow: var(--shadow-primary);
+    transform: translateY(-2px);
+  }
+
+  .hint {
+    font-size: var(--fs-xs);
+    color: var(--text-secondary);
+    text-align: center;
+    max-width: 320px;
+  }
+
+  .dpad {
+    display: none;
+    grid-template-columns: repeat(3, 48px);
+    grid-template-rows: repeat(2, 48px);
+    gap: var(--space-xs);
+    margin-top: var(--space-sm);
+  }
+
+  .dpad button {
+    padding: 0;
+    font-size: var(--fs-lg);
+  }
+
+  @media (max-width: 520px) {
+    .dpad { display: grid; }
+  }
+
+</style>
+</head>
+<body>
+
+  <h2>SNAKE</h2>
+
+  <div class="hud">
+    <div>SCORE: <span id="score">0</span></div>
+    <div>BEST: <span id="best">0</span></div>
+  </div>
+
+  <div class="board-wrap">
+    <canvas id="board" width="400" height="400"></canvas>
+    <div class="overlay" id="overlay">
+      <h3>GAME OVER</h3>
+      <p id="finalScore">Score: 0</p>
+      <button id="restartBtn">Play Again</button>
+    </div>
+  </div>
+
+  <p class="hint">Use arrow keys / WASD to move. On mobile, use the pad below.</p>
+
+  <div class="dpad">
+    <div></div><button data-dir="up">▲</button><div></div>
+    <button data-dir="left">◀</button><button data-dir="down">▼</button><button data-dir="right">▶</button>
+  </div>
+
+  <script>
+    const canvas = document.getElementById('board');
+    const ctx = canvas.getContext('2d');
+    const cell = 20;
+    const cols = canvas.width / cell;
+    const rows = canvas.height / cell;
+
+    const scoreEl = document.getElementById('score');
+    const bestEl = document.getElementById('best');
+    const overlay = document.getElementById('overlay');
+    const finalScoreEl = document.getElementById('finalScore');
+    const restartBtn = document.getElementById('restartBtn');
+
+    const primary = getComputedStyle(document.documentElement).getPropertyValue('--primary-color').trim() || '#8B5CF6';
+    const secondary = getComputedStyle(document.documentElement).getPropertyValue('--secondary-color').trim() || '#EC4899';
+    const accent = getComputedStyle(document.documentElement).getPropertyValue('--accent-color').trim() || '#06B6D4';
+    const gridColor = getComputedStyle(document.documentElement).getPropertyValue('--border-color').trim() || '#2A2F3A';
+
+    let snake, dir, nextDir, food, score, best, gameOver, loopId;
+
+    function loadBest() {
+      const stored = window.__ragecoreSnakeBest;
+      return typeof stored === 'number' ? stored : 0;
+    }
+
+    function saveBest(val) {
+      window.__ragecoreSnakeBest = val;
+    }
+
+    function reset() {
+      snake = [{ x: 8, y: 10 }, { x: 7, y: 10 }, { x: 6, y: 10 }];
+      dir = 'right';
+      nextDir = 'right';
+      score = 0;
+      gameOver = false;
+      best = loadBest();
+      scoreEl.textContent = score;
+      bestEl.textContent = best;
+      overlay.classList.remove('show');
+      placeFood();
+      if (loopId) clearInterval(loopId);
+      loopId = setInterval(tick, 110);
+    }
+
+    function placeFood() {
+      let valid = false;
+      while (!valid) {
+        food = { x: Math.floor(Math.random() * cols), y: Math.floor(Math.random() * rows) };
+        valid = !snake.some(s => s.x === food.x && s.y === food.y);
+      }
+    }
+
+    function tick() {
+      dir = nextDir;
+      const head = { ...snake[0] };
+
+      if (dir === 'up') head.y -= 1;
+      if (dir === 'down') head.y += 1;
+      if (dir === 'left') head.x -= 1;
+      if (dir === 'right') head.x += 1;
+
+      // wall collision
+      if (head.x < 0 || head.x >= cols || head.y < 0 || head.y >= rows) {
+        return endGame();
+      }
+      // self collision
+      if (snake.some(s => s.x === head.x && s.y === head.y)) {
+        return endGame();
+      }
+
+      snake.unshift(head);
+
+      if (head.x === food.x && head.y === food.y) {
+        score += 10;
+        scoreEl.textContent = score;
+        placeFood();
+      } else {
+        snake.pop();
+      }
+
+      draw();
+    }
+
+    function endGame() {
+      gameOver = true;
+      clearInterval(loopId);
+      if (score > best) {
+        best = score;
+        saveBest(best);
+        bestEl.textContent = best;
+      }
+      finalScoreEl.textContent = 'Score: ' + score;
+      overlay.classList.add('show');
+    }
+
+    function draw() {
+      ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--bg-secondary').trim() || '#161B22';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // subtle grid
+      ctx.strokeStyle = gridColor;
+      ctx.lineWidth = 0.5;
+      for (let i = 0; i <= cols; i++) {
+        ctx.beginPath();
+        ctx.moveTo(i * cell, 0);
+        ctx.lineTo(i * cell, canvas.height);
+        ctx.stroke();
+      }
+      for (let j = 0; j <= rows; j++) {
+        ctx.beginPath();
+        ctx.moveTo(0, j * cell);
+        ctx.lineTo(canvas.width, j * cell);
+        ctx.stroke();
+      }
+
+      // food
+      ctx.fillStyle = accent;
+      ctx.beginPath();
+      ctx.arc(food.x * cell + cell / 2, food.y * cell + cell / 2, cell / 2.6, 0, Math.PI * 2);
+      ctx.fill();
+
+      // snake
+      snake.forEach((s, i) => {
+        ctx.fillStyle = i === 0 ? secondary : primary;
+        ctx.fillRect(s.x * cell + 1, s.y * cell + 1, cell - 2, cell - 2);
+      });
+    }
+
+    document.addEventListener('keydown', (e) => {
+      const key = e.key.toLowerCase();
+      if ((key === 'arrowup' || key === 'w') && dir !== 'down') nextDir = 'up';
+      else if ((key === 'arrowdown' || key === 's') && dir !== 'up') nextDir = 'down';
+      else if ((key === 'arrowleft' || key === 'a') && dir !== 'right') nextDir = 'left';
+      else if ((key === 'arrowright' || key === 'd') && dir !== 'left') nextDir = 'right';
+    });
+
+    document.querySelectorAll('.dpad button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const d = btn.dataset.dir;
+        if (d === 'up' && dir !== 'down') nextDir = 'up';
+        if (d === 'down' && dir !== 'up') nextDir = 'down';
+        if (d === 'left' && dir !== 'right') nextDir = 'left';
+        if (d === 'right' && dir !== 'left') nextDir = 'right';
+      });
+    });
+
+    restartBtn.addEventListener('click', reset);
+
+    reset();
+  </script>
+
+</body>
+</html>
