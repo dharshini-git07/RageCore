@@ -1,9 +1,4 @@
-/* =========================================================
-   GameVault — details.js
-   Handles ONLY interactions for game-details.html.
-   Content lives in the HTML; this file never builds markup
-   for descriptions, specs, or reviews — only toggles/state.
-   ========================================================= */
+
 
 document.addEventListener('DOMContentLoaded', () => {
   initGallery();

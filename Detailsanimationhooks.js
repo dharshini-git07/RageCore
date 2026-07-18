@@ -1,7 +1,4 @@
-/* ============================================================
-   Add these small snippets into details.js (merge with existing code,
-   don't just append blindly — hook into your existing gallery/tab logic)
-   ============================================================ */
+
 
 // 1) Rating ring — set the dash offset based on score (out of 5)
 (function setRingOffset() {

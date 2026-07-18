@@ -1,7 +1,4 @@
-/* ============================================================
-   GAME DETAILS PAGE — ANIMATIONS
-   Paste this into details.css (or link as a separate file after it)
-   ============================================================ */
+
 
 /* ---------- Page load: staggered fade-up ---------- */
 .detail-top,
@@ -203,10 +200,9 @@
 .bar-row:nth-child(5) .bar > div { animation-delay: 0.5s; }
 @keyframes barFill {
   from { width: 0 !important; }
-  /* JS sets the real inline width, this keyframe just eases into it */
+ 
 }
-/* Simpler & safer: use a CSS transition instead of the keyframe above.
-   In your JS, set the bar widths after a short delay so this transition fires. */
+
 .bar-row .bar > div {
   transition: width 0.9s ease;
 }

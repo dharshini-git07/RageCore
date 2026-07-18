@@ -1,13 +1,3 @@
-/* =========================================================
-   GameVault — recommendation.js
-   The "You May Also Like" cards are real, hand-written HTML
-   in each game's own details page (per team convention:
-   content lives in HTML, JS only handles interaction). This
-   file picks a random 6 of the existing cards to show and
-   hides the rest, excluding whichever card links back to the
-   page you're currently on.
-   ========================================================= */
-
 document.addEventListener('DOMContentLoaded', () => {
   randomizeRecommendations(6);
 });
@@ -38,10 +28,6 @@ function pickRandom(arr, count) {
   return copy.slice(0, count);
 }
 
-/* Compares a card's href against the file the browser is currently on,
-   e.g. cod.html === cod.html — works for the short per-game filenames
-   (gta.html, ec.html, cod.html, ...) as well as any ?id=... style links,
-   since only the filename portion (before ? or #) is compared. */
 function cardMatchesCurrentPage(card, currentFile) {
   const href = card.getAttribute('href') || '';
   const hrefFile = href.split('#')[0].split('?')[0].split('/').pop();
@@ -54,11 +40,6 @@ function getCurrentFileName() {
   return file || 'index.html';
 }
 
-
-/* ============================================================
-   Add to details.js — powers the countdown + Notify Me button
-   for the Upcoming Games section
-   ============================================================ */
 
 function startUpcomingCountdowns() {
   const blocks = document.querySelectorAll('.upcoming-countdown');
