@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="details.css">
+<link rel="stylesheet" href="Detailsanimations.css">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
 </head>
 <body>
@@ -487,7 +488,88 @@
   </section>
 
 </main>
+<section class="upcoming-section">
+  <div class="upcoming-header">
+    <h2>Upcoming Games</h2>
+    <p>Get ready — these are launching soon</p>
+  </div>
 
+  <div class="upcoming-track" id="upcomingTrack">
+
+    <div class="upcoming-card">
+      <div class="upcoming-img">
+        <img src="gamedetailsimg/gtavi.jpeg" alt="GTA VI cover art">
+        <span class="upcoming-badge">Coming Soon</span>
+      </div>
+      <div class="upcoming-body">
+        <p class="upcoming-title">GTA VI</p>
+        <p class="upcoming-sub"><span>Action</span><span>Rockstar Games</span></p>
+        <p class="upcoming-date" data-release="2027-05-26T00:00:00">Releases 26 May 2027</p>
+        <div class="upcoming-countdown" data-target="2027-05-26T00:00:00">
+          <span class="cd-block"><b class="cd-days">--</b><small>Days</small></span>
+          <span class="cd-block"><b class="cd-hours">--</b><small>Hrs</small></span>
+          <span class="cd-block"><b class="cd-mins">--</b><small>Min</small></span>
+        </div>
+        <button class="btn btn-outline notify-btn">Notify Me</button>
+      </div>
+    </div>
+
+    <div class="upcoming-card">
+      <div class="upcoming-img">
+        <img src="gamedetailsimg/marvel.jpeg" alt="Marvel's Wolverine cover art">
+        <span class="upcoming-badge">Coming Soon</span>
+      </div>
+      <div class="upcoming-body">
+        <p class="upcoming-title">Marvel's Wolverine</p>
+        <p class="upcoming-sub"><span>Action Adventure</span><span>Insomniac Games</span></p>
+        <p class="upcoming-date" data-release="2026-12-10T00:00:00">Releases 10 Dec 2026</p>
+        <div class="upcoming-countdown" data-target="2026-12-10T00:00:00">
+          <span class="cd-block"><b class="cd-days">--</b><small>Days</small></span>
+          <span class="cd-block"><b class="cd-hours">--</b><small>Hrs</small></span>
+          <span class="cd-block"><b class="cd-mins">--</b><small>Min</small></span>
+        </div>
+        <button class="btn btn-outline notify-btn">Notify Me</button>
+      </div>
+    </div>
+
+    <div class="upcoming-card">
+      <div class="upcoming-img">
+        <img src="gamedetailsimg/Fable.jpeg" alt="Fable cover art">
+        <span class="upcoming-badge">Coming Soon</span>
+      </div>
+      <div class="upcoming-body">
+        <p class="upcoming-title">Fable</p>
+        <p class="upcoming-sub"><span>RPG</span><span>Playground Games</span></p>
+        <p class="upcoming-date" data-release="2026-10-01T00:00:00">Releases Oct 2026</p>
+        <div class="upcoming-countdown" data-target="2026-10-01T00:00:00">
+          <span class="cd-block"><b class="cd-days">--</b><small>Days</small></span>
+          <span class="cd-block"><b class="cd-hours">--</b><small>Hrs</small></span>
+          <span class="cd-block"><b class="cd-mins">--</b><small>Min</small></span>
+        </div>
+        <button class="btn btn-outline notify-btn">Notify Me</button>
+      </div>
+    </div>
+
+    <div class="upcoming-card">
+      <div class="upcoming-img">
+        <img src="gamedetailsimg/Borderlands 4.jpeg" alt="Borderlands 4 cover art">
+        <span class="upcoming-badge">Coming Soon</span>
+      </div>
+      <div class="upcoming-body">
+        <p class="upcoming-title">Borderlands 4</p>
+        <p class="upcoming-sub"><span>Looter Shooter</span><span>Gearbox</span></p>
+        <p class="upcoming-date" data-release="2026-09-12T00:00:00">Releases 12 Sep 2026</p>
+        <div class="upcoming-countdown" data-target="2026-09-12T00:00:00">
+          <span class="cd-block"><b class="cd-days">--</b><small>Days</small></span>
+          <span class="cd-block"><b class="cd-hours">--</b><small>Hrs</small></span>
+          <span class="cd-block"><b class="cd-mins">--</b><small>Min</small></span>
+        </div>
+        <button class="btn btn-outline notify-btn">Notify Me</button>
+      </div>
+    </div>
+
+  </div>
+</section>
 
 <!-- FOOTER-->                                                                                                  
 
@@ -620,5 +702,6 @@
 <script src="games-data.js"></script>
 <script src="details.js"></script>
 <script src="recommendation.js"></script>
+<script src="Detailsanimationhooks.js"></script>
 </body>
 </html>
