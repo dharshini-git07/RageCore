@@ -1134,3 +1134,10 @@
         padding: 10px 20px;
     }
 }
+
+/* Featured & Trending Games Centering Utility */
+.view-all-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
