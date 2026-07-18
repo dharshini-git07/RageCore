@@ -1,0 +1,210 @@
+/* =====================================================
+   RAGECORE ARCADE - DASH CARS STYLE
+   ===================================================== */
+
+.game-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-xl) 0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.game-card-wrapper {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+}
+
+.game-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--space-md);
+    font-family: var(--heading-font);
+    font-size: var(--fs-md);
+}
+
+.stat-item {
+    background: rgba(0, 0, 0, 0.3);
+    padding: var(--space-xs) var(--space-md);
+    border-radius: var(--radius-sm);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    color: var(--text-primary);
+}
+
+.stat-value {
+    color: var(--accent-color);
+    font-weight: var(--fw-bold);
+}
+
+/* Racing Track Game Board */
+.track-container {
+    width: 100%;
+    height: 450px;
+    background: #111827; /* Dark tarmac */
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
+}
+
+/* Road lines scrolling animation */
+.road-line {
+    position: absolute;
+    width: 6px;
+    height: 40px;
+    background: #ffffff;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.3;
+}
+
+/* Grid lines for lanes */
+.lane-divider {
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    top: 0;
+}
+
+.lane-divider-left {
+    left: 33.33%;
+}
+
+.lane-divider-right {
+    left: 66.66%;
+}
+
+/* Game Entities */
+.player-car {
+    position: absolute;
+    bottom: 20px;
+    width: 45px;
+    height: 75px;
+    background: var(--secondary-color);
+    border-radius: 8px;
+    box-shadow: 0 0 15px var(--secondary-color);
+    transition: left 0.15s ease-out; /* Smooth lane switching */
+    z-index: 10;
+}
+
+/* Stylize the player car to look like a racing car */
+.player-car::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 5px;
+    right: 5px;
+    height: 20px;
+    background: #0f172a;
+    border-radius: 4px; /* Windshield */
+}
+
+.player-car::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 35px;
+    height: 8px;
+    background: var(--accent-color);
+    border-radius: 2px; /* Spoiler */
+    box-shadow: 0 0 8px var(--accent-color);
+}
+
+.obstacle {
+    position: absolute;
+    width: 45px;
+    height: 75px;
+    background: var(--accent-color);
+    border-radius: 8px;
+    box-shadow: 0 0 15px var(--accent-color);
+    z-index: 5;
+}
+
+/* Obstacle car styling */
+.obstacle::before {
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 5px;
+    right: 5px;
+    height: 20px;
+    background: #0f172a;
+    border-radius: 4px;
+}
+
+/* Game Over and Start Overlays */
+.overlay-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(13, 17, 23, 0.9);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    padding: var(--space-md);
+}
+
+.overlay-screen.hidden {
+    display: none !important;
+}
+
+.overlay-screen h2 {
+    font-size: var(--fs-2xl);
+    margin-bottom: var(--space-xs);
+    color: var(--secondary-color);
+    text-shadow: 0 0 10px rgba(236, 72, 153, 0.5);
+}
+
+.overlay-screen p {
+    margin-bottom: var(--space-lg);
+    font-size: var(--fs-sm);
+}
+
+/* Mobile Controls */
+.mobile-controls {
+    display: none;
+    justify-content: space-between;
+    margin-top: var(--space-md);
+    gap: var(--space-md);
+}
+
+.control-btn {
+    flex: 1;
+    padding: var(--space-md);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    font-size: var(--fs-xl);
+    transition: background 0.2s;
+    user-select: none;
+}
+
+.control-btn:active {
+    background: var(--primary-color);
+    box-shadow: 0 0 10px var(--primary-color);
+}
+
+/* Show mobile controls on touch devices or small screens */
+@media (max-width: 768px) {
+    .mobile-controls {
+        display: flex;
+    }
+}

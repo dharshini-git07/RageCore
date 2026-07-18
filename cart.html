@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RageCore | Shopping Cart</title>
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/logo/favicon.png">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/variable.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container nav-container">
+                <!-- Logo -->
+                <a href="index.html" class="logo">
+                    <i class="fa-solid fa-gamepad"></i>
+                    <span>RageCore</span>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="games.html">Games</a></li>
+                    <li><a href="#">Categories</a></li>
+                    <li><a href="#">Deals</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+
+                <!-- Search -->
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Search games...">
+                </div>
+
+                <!-- Right Icons -->
+                <div class="nav-actions">
+                    <a href="wishlist.html" title="Wishlist">
+                        <i class="fa-regular fa-heart"></i>
+                    </a>
+                    <a href="cart.html" title="Cart" class="active-icon" style="color: var(--primary-color);">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="cart-badge" id="cart-nav-badge">3</span>
+                    </a>
+                    <a href="login.html" title="Profile">
+                        <i class="fa-regular fa-user"></i>
+                    </a>
+                    <button class="menu-btn">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MOBILE SIDEBAR -->
+    <aside class="mobile-sidebar">
+        <div class="sidebar-header">
+            <h2><span>Rage</span>Core</h2>
+            <button class="close-btn">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <ul class="mobile-links">
+            <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+            <li><a href="games.html"><i class="fa-solid fa-gamepad"></i> Games</a></li>
+            <li><a href="#"><i class="fa-solid fa-layer-group"></i> Categories</a></li>
+            <li><a href="wishlist.html"><i class="fa-regular fa-heart"></i> Wishlist</a></li>
+            <li><a href="cart.html" class="active"><i class="fa-solid fa-cart-shopping"></i> Cart</a></li>
+            <li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+            <li><a href="login.html"><i class="fa-regular fa-user"></i> Login</a></li>
+        </ul>
+    </aside>
+    <div class="sidebar-overlay"></div>
+
+    <!-- MAIN CART CONTENT -->
+    <main class="cart-page">
+        <section class="cart-section container">
+            <h1 class="page-title">SHOPPING <span>CART</span></h1>
+            <p class="section-subtitle">Manage your games selection and checkout</p>
+
+            <div class="cart-container" id="cart-container-layout">
+                <!-- Cart Items List -->
+                <div class="cart-items-wrapper">
+                    
+                    <!-- Item 1 -->
+                    <div class="cart-item" data-id="1" data-price="59.99">
+                        <div class="cart-item-image">
+                            <img src="assets/images/games/forza.png" alt="Forza Horizon 5">
+                        </div>
+                        <div class="cart-item-details">
+                            <span class="item-tag">Racing</span>
+                            <h3>Forza Horizon 5</h3>
+                            <p class="item-platform"><i class="fa-brands fa-windows"></i> PC / Xbox Series X</p>
+                        </div>
+                        <div class="cart-item-quantity">
+                            <button class="qty-btn qty-minus"><i class="fa-solid fa-minus"></i></button>
+                            <input type="number" value="1" min="1" max="5" class="qty-input" readonly>
+                            <button class="qty-btn qty-plus"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                        <div class="cart-item-price">
+                            <span class="price-label">Price:</span>
+                            <span class="price-val">$59.99</span>
+                        </div>
+                        <div class="cart-item-subtotal">
+                            <span class="price-label">Total:</span>
+                            <span class="price-val subtotal-val">$59.99</span>
+                        </div>
+                        <div class="cart-item-actions">
+                            <button class="action-btn wishlist-btn" title="Move to Wishlist">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                            <button class="action-btn delete-btn" title="Remove from Cart">
+                                <i class="fa-regular fa-trash-can"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="cart-item" data-id="2" data-price="29.99">
+                        <div class="cart-item-image">
+                            <img src="assets/images/games/dash-cars.png" alt="Dash Cars">
+                        </div>
+                        <div class="cart-item-details">
+                            <span class="item-tag">Racing</span>
+                            <h3>Dash Cars</h3>
+                            <p class="item-platform"><i class="fa-brands fa-windows"></i> PC / Steam</p>
+                        </div>
+                        <div class="cart-item-quantity">
+                            <button class="qty-btn qty-minus"><i class="fa-solid fa-minus"></i></button>
+                            <input type="number" value="1" min="1" max="5" class="qty-input" readonly>
+                            <button class="qty-btn qty-plus"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                        <div class="cart-item-price">
+                            <span class="price-label">Price:</span>
+                            <span class="price-val">$29.99</span>
+                        </div>
+                        <div class="cart-item-subtotal">
+                            <span class="price-label">Total:</span>
+                            <span class="price-val subtotal-val">$29.99</span>
+                        </div>
+                        <div class="cart-item-actions">
+                            <button class="action-btn wishlist-btn" title="Move to Wishlist">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                            <button class="action-btn delete-btn" title="Remove from Cart">
+                                <i class="fa-regular fa-trash-can"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="cart-item" data-id="3" data-price="4.99">
+                        <div class="cart-item-image">
+                            <img src="assets/images/games/tic-tac-toe.png" alt="Tic Tac Toe Neon">
+                        </div>
+                        <div class="cart-item-details">
+                            <span class="item-tag">Casual</span>
+                            <h3>Tic Tac Toe Neon</h3>
+                            <p class="item-platform"><i class="fa-brands fa-windows"></i> PC / Web</p>
+                        </div>
+                        <div class="cart-item-quantity">
+                            <button class="qty-btn qty-minus"><i class="fa-solid fa-minus"></i></button>
+                            <input type="number" value="1" min="1" max="5" class="qty-input" readonly>
+                            <button class="qty-btn qty-plus"><i class="fa-solid fa-plus"></i></button>
+                        </div>
+                        <div class="cart-item-price">
+                            <span class="price-label">Price:</span>
+                            <span class="price-val">$4.99</span>
+                        </div>
+                        <div class="cart-item-subtotal">
+                            <span class="price-label">Total:</span>
+                            <span class="price-val subtotal-val">$4.99</span>
+                        </div>
+                        <div class="cart-item-actions">
+                            <button class="action-btn wishlist-btn" title="Move to Wishlist">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                            <button class="action-btn delete-btn" title="Remove from Cart">
+                                <i class="fa-regular fa-trash-can"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Order Summary Sidebar -->
+                <div class="cart-summary-wrapper">
+                    <div class="summary-card">
+                        <h3>Order Summary</h3>
+                        <div class="summary-row">
+                            <span>Subtotal</span>
+                            <span id="summary-subtotal">$94.97</span>
+                        </div>
+                        <div class="summary-row" id="discount-row" style="display: none;">
+                            <span>Discount (20%)</span>
+                            <span id="summary-discount" class="discount-color">-$0.00</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Estimated Tax (8%)</span>
+                            <span id="summary-tax">$7.60</span>
+                        </div>
+                        <hr class="summary-divider">
+                        <div class="summary-row total-row">
+                            <span>Grand Total</span>
+                            <span id="summary-total">$102.57</span>
+                        </div>
+
+                        <!-- Promo Code Box -->
+                        <div class="promo-box">
+                            <label for="promo-input">Promo Code</label>
+                            <div class="promo-input-group">
+                                <input type="text" id="promo-input" placeholder="e.g. RAGE20">
+                                <button type="button" id="promo-apply-btn" class="btn btn-secondary">Apply</button>
+                            </div>
+                            <span id="promo-message" class="promo-msg"></span>
+                        </div>
+
+                        <!-- Checkout Button -->
+                        <button class="btn btn-primary btn-checkout">
+                            PROCEED TO CHECKOUT <i class="fa-solid fa-arrow-right-long"></i>
+                        </button>
+
+                        <a href="games.html" class="continue-shopping">
+                            <i class="fa-solid fa-arrow-left"></i> Continue Shopping
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Empty Cart State (Hidden by default) -->
+            <div class="empty-cart-state hidden" id="empty-cart">
+                <i class="fa-solid fa-basket-shopping empty-icon"></i>
+                <h2>Your Cart is <span>Empty</span></h2>
+                <p>You haven't added any games to your cart yet. Explore our store to find your next adventure!</p>
+                <a href="games.html" class="btn btn-primary">Browse Games</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-about">
+                <a href="index.html" class="footer-logo">
+                    <i class="fa-solid fa-gamepad"></i>
+                    <span>Rage</span>Core
+                </a>
+                <p>Your ultimate destination for premium games, keys, and gaming experiences.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fa-brands fa-discord"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="games.html">Games</a></li>
+                    <li><a href="wishlist.html">Wishlist</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h3>Categories</h3>
+                <ul>
+                    <li><a href="games.html">Action</a></li>
+                    <li><a href="games.html">Racing</a></li>
+                    <li><a href="games.html">Sports</a></li>
+                    <li><a href="games.html">RPG</a></li>
+                    <li><a href="games.html">Adventure</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-newsletter">
+                <h3>Newsletter</h3>
+                <p>Subscribe to receive the latest game releases and exclusive offers.</p>
+                <form>
+                    <div class="newsletter-box">
+                        <input type="email" placeholder="Enter your email">
+                        <button type="submit">
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <hr>
+        <div class="container footer-bottom">
+            <p>&copy;2026 RageCore. All Rights Reserved.</p>
+            <p>Designed by Team E ❤️</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script src="js/home.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+
+</html>
