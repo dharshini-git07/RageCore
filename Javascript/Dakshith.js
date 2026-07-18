@@ -775,3 +775,170 @@ document.querySelectorAll('.field-edit').forEach(function (btn) {
   var navBtnMobile = document.getElementById('profileNavBtnMobile');
   if (navBtnMobile) navBtnMobile.addEventListener('click', goToProfileOrLogin);
 })();
+/* ===== Payment Methods: Remove + Add (persists via localStorage) ===== */
+(function () {
+  var payList = document.querySelector('.pay-list');
+  if (!payList) return; // not on profile page, skip safely
+
+  function pmGet(k) { try { return JSON.parse(window.localStorage.getItem(k)) || []; } catch (e) { return []; } }
+  function pmSet(k, v) { try { window.localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+
+  var REMOVED_KEY = 'ragecore-removed-cards';
+  var ADDED_KEY = 'ragecore-added-cards';
+
+  // Restore: hide any default cards the user removed earlier
+  var removedIds = pmGet(REMOVED_KEY);
+  removedIds.forEach(function (id) {
+    var el = payList.querySelector('[data-pay-id="' + id + '"]');
+    if (el) el.remove();
+  });
+
+  // Restore: re-add any custom cards the user added earlier
+  var addedCards = pmGet(ADDED_KEY);
+  addedCards.forEach(function (card) {
+    payList.insertBefore(buildPayItem(card), payList.querySelector('.add-pay-btn'));
+  });
+
+  // Give every existing default pay-item a stable id (based on its name) if it doesn't have one
+  payList.querySelectorAll('.pay-item').forEach(function (item, i) {
+    if (!item.dataset.payId) item.dataset.payId = 'default-' + i;
+  });
+
+  function buildPayItem(card) {
+    var div = document.createElement('div');
+    div.className = 'pay-item';
+    div.dataset.payId = card.id;
+    div.innerHTML =
+      '<div class="pay-left">' +
+        '<div class="pay-icon pay-upi">' + card.tag + '</div>' +
+        '<div>' +
+          '<div class="pay-name">' + card.name + '</div>' +
+          '<div class="pay-sub">' + card.sub + '</div>' +
+        '</div>' +
+      '</div>' +
+      '<button class="pay-remove">Remove</button>';
+    return div;
+  }
+
+  // Remove handler (works for default + newly added cards, using event delegation)
+  payList.addEventListener('click', function (e) {
+    if (!e.target.classList.contains('pay-remove')) return;
+    var item = e.target.closest('.pay-item');
+    if (!item) return;
+    var id = item.dataset.payId;
+
+    // Track removal so it stays removed after refresh
+    if (id.indexOf('default-') === 0) {
+      var removed = pmGet(REMOVED_KEY);
+      removed.push(id);
+      pmSet(REMOVED_KEY, removed);
+    } else {
+      var added = pmGet(ADDED_KEY).filter(function (c) { return c.id !== id; });
+      pmSet(ADDED_KEY, added);
+    }
+
+    item.style.opacity = '0';
+    item.style.transform = 'translateX(20px)';
+    setTimeout(function () { item.remove(); }, 200);
+  });
+
+  // Add Payment Method handler
+  var addBtn = document.querySelector('.add-pay-btn');
+  if (addBtn) {
+    addBtn.addEventListener('click', function () {
+      var upiId = prompt('Enter your UPI ID (e.g. yourname@bank):');
+      if (!upiId || !upiId.trim()) return;
+
+      var card = {
+        id: 'custom-' + Date.now(),
+        tag: 'UPI',
+        name: upiId.trim(),
+        sub: 'Linked UPI ID'
+      };
+
+      var added = pmGet(ADDED_KEY);
+      added.push(card);
+      pmSet(ADDED_KEY, added);
+
+      payList.insertBefore(buildPayItem(card), addBtn);
+    });
+  }
+})();
+
+/* ===== Preferences toggles: persist Deal Alerts / Order Updates ===== */
+(function () {
+  var prefRows = document.querySelectorAll('.pref-row');
+  if (!prefRows.length) return; // not on profile page, skip safely
+
+  function prefGet(k) { try { return window.localStorage.getItem(k); } catch (e) { return null; } }
+  function prefSet(k, v) { try { window.localStorage.setItem(k, v); } catch (e) {} }
+
+  prefRows.forEach(function (row, index) {
+    var checkbox = row.querySelector('.switch input[type="checkbox"]');
+    if (!checkbox || checkbox.id === 'brightModeSwitch') return; // theme switch handled separately
+
+    var key = 'ragecore-pref-' + index;
+    var saved = prefGet(key);
+    if (saved !== null) checkbox.checked = saved === 'true';
+
+    checkbox.addEventListener('change', function () {
+      prefSet(key, checkbox.checked);
+    });
+  });
+})();
+
+/* ===== Change Password button (simple inline flow) ===== */
+(function () {
+  var changePwBtn = document.getElementById('changePwBtn');
+  if (!changePwBtn) return;
+
+  changePwBtn.addEventListener('click', function () {
+    var newPw = prompt('Enter your new password (min 6 characters):');
+    if (!newPw) return;
+    if (newPw.length < 6) {
+      alert('Password must be at least 6 characters.');
+      return;
+    }
+
+    try {
+      var loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+      if (loggedInUser) {
+        loggedInUser.password = newPw;
+        localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
+
+        var users = JSON.parse(localStorage.getItem('users')) || [];
+        var idx = users.findIndex(function (u) { return u.email === loggedInUser.email; });
+        if (idx !== -1) {
+          users[idx].password = newPw;
+          localStorage.setItem('users', JSON.stringify(users));
+        }
+      }
+    } catch (e) {}
+
+    alert('Password updated successfully.');
+  });
+})();
+
+/* ===== Deactivate Account button ===== */
+(function () {
+  var deactivateBtn = document.querySelector('.danger-btn');
+  if (!deactivateBtn) return; 
+
+  deactivateBtn.addEventListener('click', function () {
+    var confirmed = confirm('Are you sure you want to deactivate your account? This cannot be undone.');
+    if (!confirmed) return;
+
+    try {
+      var loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+      if (loggedInUser) {
+        var users = JSON.parse(localStorage.getItem('users')) || [];
+        users = users.filter(function (u) { return u.email !== loggedInUser.email; });
+        localStorage.setItem('users', JSON.stringify(users));
+      }
+      localStorage.removeItem('loggedInUser');
+    } catch (e) {}
+
+    alert('Your account has been deactivated.');
+    window.location.href = 'index.html';
+  });
+})();

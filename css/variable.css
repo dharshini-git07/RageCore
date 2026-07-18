@@ -167,3 +167,177 @@ html[data-theme="light"] {
   --shadow-lg: 0 12px 30px rgba(20,20,40,.10);
   --shadow-primary: 0 0 15px rgba(139,92,246,.20);
 }
+
+/* =====================================================
+   LIGHT MODE (site-wide)
+   ===================================================== */
+html[data-theme="light"] {
+  --bg-color: #F3F4F8;
+  --bg-secondary: #FFFFFF;
+  --card-bg: #FFFFFF;
+  --text-primary: #FFFFFF;
+  --text-secondary: #4B5563;
+  --border-color: rgba(0, 0, 0, 0.08);
+  --card-gradient: linear-gradient(180deg, #FFFFFF, #F7F7FB);
+  --shadow-sm: 0 2px 8px rgba(20,20,40,.06);
+  --shadow-md: 0 8px 20px rgba(20,20,40,.08);
+  --shadow-lg: 0 12px 30px rgba(20,20,40,.10);
+  --shadow-primary: 0 0 15px rgba(139,92,246,.20);
+}
+
+html[data-theme="light"] body {
+  background: var(--bg-color);
+}
+
+/* Navbar */
+html[data-theme="light"] .navbar {
+  background: rgba(255, 255, 255, 0.85);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+html[data-theme="light"] .navbar.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+html[data-theme="light"] .search-box,
+html[data-theme="light"] .nav-actions a,
+html[data-theme="light"] .menu-btn {
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Mobile sidebar */
+html[data-theme="light"] .mobile-sidebar {
+  background: rgba(255, 255, 255, 0.97);
+  border-left: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+html[data-theme="light"] .close-btn {
+  color: var(--text-primary);
+}
+
+/* Footer */
+html[data-theme="light"] .footer {
+  background: linear-gradient(to top, #ECEDF3, #FFFFFF);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+html[data-theme="light"] .newsletter-box {
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+html[data-theme="light"] .social-links a {
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+html[data-theme="light"] .footer hr {
+  background: rgba(0, 0, 0, 0.08);
+}
+html[data-theme="light"] {
+  --bg-color: #F8F9FC;
+  --bg-secondary: #FFFFFF;
+  --card-bg: #FFFFFF;
+  --text-primary: #1A1D29;
+  --text-secondary: #64748B;
+  --border-color: rgba(15, 23, 42, 0.08);
+  --card-gradient: linear-gradient(180deg, #FFFFFF, #F8F9FC);
+
+  /* Softer, white-friendly accent colors */
+  --primary-color: #7C3AED;
+  --secondary-color: #DB2777;
+  --accent-color: #0891B2;
+  --primary-gradient: linear-gradient(135deg, #7C3AED, #DB2777);
+  --hover-color: #6D28D9;
+
+  --shadow-sm: 0 2px 8px rgba(15,23,42,.05);
+  --shadow-md: 0 8px 20px rgba(15,23,42,.07);
+  --shadow-lg: 0 12px 30px rgba(15,23,42,.09);
+  --shadow-primary: 0 0 15px rgba(124,58,237,.18);
+}
+/* ---------- Feature cards ---------- */
+html[data-theme="light"] .feature-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+}
+
+html[data-theme="light"] .feature-card:hover {
+  border-color: var(--primary-color);
+  box-shadow: var(--shadow-md);
+}
+
+html[data-theme="light"] .feature-icon {
+  background: rgba(37, 99, 235, 0.08);
+  color: var(--primary-color);
+}
+
+html[data-theme="light"] .feature-card:hover .feature-icon {
+  background: var(--primary-gradient);
+  color: #fff;
+}
+
+/* ---------- Why-choose section ---------- */
+html[data-theme="light"] .why-choose {
+  background: var(--bg-color);
+  border-top: 1px solid var(--border-color);
+}
+
+/* ---------- Buttons ---------- */
+html[data-theme="light"] .btn-secondary {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+html[data-theme="light"] .btn-secondary:hover {
+  border-color: var(--secondary-color);
+  background: var(--secondary-color);
+  color: #fff;
+}
+
+
+
+/* ---------- Slider controls & dots ---------- */
+html[data-theme="light"] .slider-btn {
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+html[data-theme="light"] .slider-btn:hover {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+html[data-theme="light"] .dot {
+  background: rgba(15, 23, 42, 0.2);
+}
+
+html[data-theme="light"] .dot.active {
+  background: var(--primary-color);
+  box-shadow: 0 0 12px rgba(37, 99, 235, .4);
+}
+
+
+/* ---------- Badges ---------- */
+html[data-theme="light"] .badge {
+  color: #fff;
+}
+
+html[data-theme="light"] .hero-eyebrow {
+  background: rgba(8, 145, 178, 0.08);
+  border: 1px solid rgba(8, 145, 178, 0.3);
+}
+
+/* ---------- Nav links & logo ---------- */
+html[data-theme="light"] .nav-links a:hover,
+html[data-theme="light"] .nav-links a.active {
+  color: var(--text-primary);
+}
+
+html[data-theme="light"] .mobile-links a:hover {
+  background: rgba(37, 92, 235, 0.08);
+}
