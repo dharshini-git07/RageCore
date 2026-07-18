@@ -1141,3 +1141,15 @@
     justify-content: center;
     margin-top: 40px;
 }
+
+/* Responsive Navbar Search Visibility */
+@media (min-width: 993px) {
+    .mobile-search {
+        display: none !important;
+    }
+}
+@media (max-width: 992px) {
+    .desktop-search {
+        display: none !important;
+    }
+}
