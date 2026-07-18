@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RageCore | Wishlist</title>
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/logo/favicon.png">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/variable.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/wishlist.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container nav-container">
+                <!-- Logo -->
+                <a href="index.html" class="logo">
+                    <i class="fa-solid fa-gamepad"></i>
+                    <span>RageCore</span>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="games.html">Games</a></li>
+                    <li><a href="#">Categories</a></li>
+                    <li><a href="#">Deals</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+
+                <!-- Search -->
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Search games...">
+                </div>
+
+                <!-- Right Icons -->
+                <div class="nav-actions">
+                    <a href="wishlist.html" title="Wishlist" class="active-icon" style="color: var(--primary-color);">
+                        <i class="fa-solid fa-heart"></i>
+                        <span class="cart-badge" id="wishlist-nav-badge">4</span>
+                    </a>
+                    <a href="cart.html" title="Cart">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="cart-badge" id="cart-nav-badge">3</span>
+                    </a>
+                    <a href="login.html" title="Profile">
+                        <i class="fa-regular fa-user"></i>
+                    </a>
+                    <button class="menu-btn">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MOBILE SIDEBAR -->
+    <aside class="mobile-sidebar">
+        <div class="sidebar-header">
+            <h2><span>Rage</span>Core</h2>
+            <button class="close-btn">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <ul class="mobile-links">
+            <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+            <li><a href="games.html"><i class="fa-solid fa-gamepad"></i> Games</a></li>
+            <li><a href="#"><i class="fa-solid fa-layer-group"></i> Categories</a></li>
+            <li><a href="wishlist.html" class="active"><i class="fa-solid fa-heart"></i> Wishlist</a></li>
+            <li><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i> Cart</a></li>
+            <li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+            <li><a href="login.html"><i class="fa-regular fa-user"></i> Login</a></li>
+        </ul>
+    </aside>
+    <div class="sidebar-overlay"></div>
+
+    <!-- MAIN WISHLIST CONTENT -->
+    <main class="wishlist-page">
+        <section class="wishlist-section container">
+            <h1 class="page-title">MY <span>WISHLIST</span></h1>
+            <p class="section-subtitle">Track the games you want and grab them when ready</p>
+
+            <!-- Grid of Wishlist items -->
+            <div class="wishlist-grid" id="wishlist-grid-layout">
+                
+                <!-- Game Card 1 -->
+                <div class="wishlist-card" data-id="1" data-price="59.99" data-title="Forza Horizon 5" data-image="assets/images/games/forza.png" data-platform="PC / Xbox Series X" data-tag="Racing">
+                    <button class="wishlist-remove-btn" title="Remove from Wishlist">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                    <div class="card-image-wrapper">
+                        <img src="assets/images/games/forza.png" alt="Forza Horizon 5">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-badge">Racing</span>
+                        <h3>Forza Horizon 5</h3>
+                        <div class="card-footer">
+                            <span class="card-price">$59.99</span>
+                            <div class="platforms">
+                                <i class="fa-brands fa-windows" title="Windows PC"></i>
+                                <i class="fa-brands fa-xbox" title="Xbox Series X/S"></i>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary btn-add-cart-from-wish">
+                            <i class="fa-solid fa-cart-plus"></i> ADD TO CART
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Game Card 2 -->
+                <div class="wishlist-card" data-id="4" data-price="9.99" data-title="Snake Arcade" data-image="assets/images/games/snake.png" data-platform="PC / Web" data-tag="Retro">
+                    <button class="wishlist-remove-btn" title="Remove from Wishlist">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                    <div class="card-image-wrapper">
+                        <img src="assets/images/games/snake.png" alt="Snake Arcade">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-badge">Retro</span>
+                        <h3>Snake Arcade</h3>
+                        <div class="card-footer">
+                            <span class="card-price">$9.99</span>
+                            <div class="platforms">
+                                <i class="fa-brands fa-windows" title="Windows PC"></i>
+                                <i class="fa-solid fa-globe" title="Web Browser"></i>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary btn-add-cart-from-wish">
+                            <i class="fa-solid fa-cart-plus"></i> ADD TO CART
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Game Card 3 -->
+                <div class="wishlist-card" data-id="5" data-price="14.99" data-title="Memory Game" data-image="assets/images/games/memory-game.png" data-platform="PC / Web" data-tag="Puzzle">
+                    <button class="wishlist-remove-btn" title="Remove from Wishlist">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                    <div class="card-image-wrapper">
+                        <img src="assets/images/games/memory-game.png" alt="Memory Game">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-badge">Puzzle</span>
+                        <h3>Memory Game</h3>
+                        <div class="card-footer">
+                            <span class="card-price">$14.99</span>
+                            <div class="platforms">
+                                <i class="fa-brands fa-windows" title="Windows PC"></i>
+                                <i class="fa-solid fa-globe" title="Web Browser"></i>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary btn-add-cart-from-wish">
+                            <i class="fa-solid fa-cart-plus"></i> ADD TO CART
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Game Card 4 -->
+                <div class="wishlist-card" data-id="6" data-price="2.99" data-title="Rock Paper Scissors" data-image="assets/images/games/rock-paper-scissors.png" data-platform="PC / Web" data-tag="Casual">
+                    <button class="wishlist-remove-btn" title="Remove from Wishlist">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                    <div class="card-image-wrapper">
+                        <img src="assets/images/games/rock-paper-scissors.png" alt="Rock Paper Scissors">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-badge">Casual</span>
+                        <h3>Rock Paper Scissors</h3>
+                        <div class="card-footer">
+                            <span class="card-price">$2.99</span>
+                            <div class="platforms">
+                                <i class="fa-brands fa-windows" title="Windows PC"></i>
+                                <i class="fa-solid fa-globe" title="Web Browser"></i>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary btn-add-cart-from-wish">
+                            <i class="fa-solid fa-cart-plus"></i> ADD TO CART
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Empty Wishlist State (Hidden by default) -->
+            <div class="empty-wishlist-state hidden" id="empty-wishlist">
+                <i class="fa-regular fa-heart empty-icon"></i>
+                <h2>Your Wishlist is <span>Empty</span></h2>
+                <p>Keep track of products you're interested in. Explore our catalog and add some games!</p>
+                <a href="games.html" class="btn btn-primary">Discover Games</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-about">
+                <a href="index.html" class="footer-logo">
+                    <i class="fa-solid fa-gamepad"></i>
+                    <span>Rage</span>Core
+                </a>
+                <p>Your ultimate destination for premium games, keys, and gaming experiences.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fa-brands fa-discord"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="games.html">Games</a></li>
+                    <li><a href="wishlist.html">Wishlist</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h3>Categories</h3>
+                <ul>
+                    <li><a href="games.html">Action</a></li>
+                    <li><a href="games.html">Racing</a></li>
+                    <li><a href="games.html">Sports</a></li>
+                    <li><a href="games.html">RPG</a></li>
+                    <li><a href="games.html">Adventure</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-newsletter">
+                <h3>Newsletter</h3>
+                <p>Subscribe to receive the latest game releases and exclusive offers.</p>
+                <form>
+                    <div class="newsletter-box">
+                        <input type="email" placeholder="Enter your email">
+                        <button type="submit">
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <hr>
+        <div class="container footer-bottom">
+            <p>&copy;2026 RageCore. All Rights Reserved.</p>
+            <p>Designed by Team E ❤️</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script src="js/home.js"></script>
+    <script src="js/wishlist.js"></script>
+</body>
+
+</html>
