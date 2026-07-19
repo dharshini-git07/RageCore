@@ -639,5 +639,45 @@
           }
         }
 
+@media(max-width:768px) {
+    .footer {
+        padding: 60px 0 20px;
+    }
+    .footer-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "about about"
+            "links cats"
+            "news news";
+        text-align: center;
+        gap: 35px;
+    }
+    .footer-about      { grid-area: about; }
+    .footer-links:nth-of-type(1) { grid-area: links; }
+    .footer-links:nth-of-type(2) { grid-area: cats; }
+    .footer-newsletter { grid-area: news; }
 
+    .footer-logo {
+        justify-content: center;
+    }
+    .footer-about p {
+        max-width: 500px;
+        margin: 0 auto 25px;
+    }
+    .social-links {
+        justify-content: center;
+    }
+    .footer-links ul {
+        align-items: center;
+    }
+    .newsletter-box {
+        max-width: 420px;
+        margin: auto;
+    }
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+}
         
