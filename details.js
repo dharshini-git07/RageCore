@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCartButton();
   initReviewStars();
   initReviewForm();
+  initNavbarSearch();
 });
 
 /* ---------- Gallery: swap main image on thumbnail click ---------- */
@@ -189,4 +190,19 @@ function initReviewForm() {
 function getCurrentGameId() {
   const params = new URLSearchParams(window.location.search);
   return params.get('id') || 'elden-ring';
+}
+
+/* ---------- Navbar Search redirection ---------- */
+function initNavbarSearch() {
+  const searchInputs = document.querySelectorAll(".desktop-search input, .mobile-search input");
+  searchInputs.forEach(input => {
+    input.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        const query = input.value.trim();
+        if (query) {
+          window.location.href = `games.html?search=${encodeURIComponent(query)}`;
+        }
+      }
+    });
+  });
 }

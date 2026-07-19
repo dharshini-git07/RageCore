@@ -199,10 +199,19 @@
     }
 
     .footer-container {
-        grid-template-columns: 1fr;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "about about"
+            "links cats"
+            "news news";
         text-align: center;
         gap: 35px;
     }
+    .footer-about      { grid-area: about; }
+    .footer-links:nth-of-type(2) { grid-area: links; }
+    .footer-links:nth-of-type(1) { grid-area: cats; }
+    .footer-newsletter { grid-area: news; }
 
     .footer-logo {
         justify-content: center;
@@ -317,5 +326,11 @@
 @media (max-width: 992px) {
     .desktop-search {
         display: none !important;
+    }
+    .home-page .mobile-search {
+        display: none !important;
+    }
+    .home-page .hero {
+        margin-top: 80px !important;
     }
 }

@@ -283,7 +283,20 @@ function initializeGames() {
 
     filteredGames = [...games];
 
-    displayGames(filteredGames);
+    // Check if there is a search query in the URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchParam = urlParams.get('search');
+    if (searchParam) {
+        if (searchInput) {
+            searchInput.value = searchParam;
+        }
+        const desktopSearchInput = document.querySelector(".desktop-search input");
+        if (desktopSearchInput) {
+            desktopSearchInput.value = searchParam;
+        }
+    }
+
+    applyFilters();
 
 }
 
@@ -318,5 +331,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     if (overlay) {
         overlay.addEventListener("click", () => toggleSidebar(false));
+    }
+
+    // Mirror desktop navbar search input dynamically to main search input
+    const desktopSearchInput = document.querySelector(".desktop-search input");
+    if (desktopSearchInput) {
+        desktopSearchInput.addEventListener("input", (e) => {
+            if (searchInput) {
+                searchInput.value = e.target.value;
+                applyFilters();
+            }
+        });
+        desktopSearchInput.addEventListener("keypress", (e) => {
+            if (e.key === "Enter") {
+                e.preventDefault();
+            }
+        });
     }
 });

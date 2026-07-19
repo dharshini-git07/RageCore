@@ -128,6 +128,19 @@ class CountdownTimer {
 document.addEventListener("DOMContentLoaded", () => {
     new Navbar();
     new CountdownTimer();
+    
+    // Navbar Search redirection
+    const searchInputs = document.querySelectorAll(".desktop-search input, .mobile-search input");
+    searchInputs.forEach(input => {
+        input.addEventListener("keypress", (e) => {
+            if (e.key === "Enter") {
+                const query = input.value.trim();
+                if (query) {
+                    window.location.href = `games.html?search=${encodeURIComponent(query)}`;
+                }
+            }
+        });
+    });
 });
 
 // Callback automatically invoked when games-data.js loads the games
