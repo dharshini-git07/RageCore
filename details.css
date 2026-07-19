@@ -1330,6 +1330,7 @@ a {
 .footer-newsletter h3 {
     font-size: 20px;
     margin-bottom: 22px;
+    font-family:var(--heading-font) ;
     color: var(--text-primary);
 }
 
